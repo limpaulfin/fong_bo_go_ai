@@ -1,14 +1,20 @@
 # Bộ Gõ AI Tiếng Việt / AI Vietnamese Typing Tool
 
-Đây là một bộ gõ tiếng Việt thông minh tích hợp AI cho Windows 10, được viết bằng Python. Ứng dụng có khả năng tự động sửa lỗi chính tả, định dạng văn bản và điều chỉnh ngữ cảnh theo thời gian thực. / This is an intelligent Vietnamese typing tool integrated with AI for Windows 10, written in Python. The application has the ability to automatically correct spelling errors, format text, and adjust context in real-time.
+Đây là một bộ gõ tiếng Việt thông minh tích hợp AI và RAG (Retrieval Augmented Generation) cho Windows 10, được viết bằng Python. Ứng dụng có khả năng tự động sửa lỗi chính tả, định dạng văn bản và điều chỉnh ngữ cảnh theo thời gian thực, với khả năng tham chiếu thêm ngữ cảnh từ thư mục RAG để tăng độ chính xác. / This is an intelligent Vietnamese typing tool integrated with AI and RAG (Retrieval Augmented Generation) for Windows 10, written in Python. The application has the ability to automatically correct spelling errors, format text, and adjust context in real-time, with additional context referencing from RAG folder for enhanced accuracy.
 
 ## Tính năng chính / Key Features
 
--   **Sửa lỗi thông minh**: Tự động sửa lỗi chính tả, typo và định dạng văn bản / **Smart Correction**: Automatically corrects spelling errors, typos, and text formatting.
--   **Hỗ trợ đa ngôn ngữ**: Tiếng Việt và tiếng Anh / **Multilingual Support**: Vietnamese and English.
--   **Tùy chỉnh ngữ cảnh**: Cho phép định nghĩa các quy tắc sửa lỗi riêng / **Context Customization**: Allows defining custom correction rules.
--   **Theo dõi thống kê**: Thống kê số lượng token sử dụng theo ngày/tháng / **Statistics Tracking**: Tracks the number of tokens used daily/monthly.
--   **Ghi log**: Lưu lại lịch sử các thay đổi để tham khảo sau này / **Logging**: Saves the history of changes for future reference.
+-   **Sửa lỗi thông minh**: Tự động sửa lỗi chính tả, typo và định dạng văn bản với hai chế độ: cơ bản và nâng cao (với RAG context) / **Smart Correction**: Automatically corrects spelling errors, typos, and text formatting with two modes: basic and advanced (with RAG context).
+-   **Hỗ trợ đa ngôn ngữ**: Tiếng Việt và tiếng Anh, với khả năng xử lý văn bản song ngữ / **Multilingual Support**: Vietnamese and English, with bilingual text processing capabilities.
+-   **Tùy chỉnh ngữ cảnh**:
+    - Cơ bản: Định nghĩa các quy tắc sửa lỗi trong my_prompt.md
+    - Nâng cao: Thêm các file .md vào thư mục rag_context để mở rộng ngữ cảnh
+    / **Context Customization**:
+    - Basic: Define correction rules in my_prompt.md
+    - Advanced: Add .md files to rag_context folder for extended context
+-   **Theo dõi thống kê**: Thống kê chi tiết số lượng token sử dụng theo ngày/tháng, phân biệt theo loại trigger / **Statistics Tracking**: Detailed token usage statistics by day/month, differentiated by trigger type.
+-   **Ghi log**: Lưu lại lịch sử các thay đổi và API responses để tham khảo và debug / **Logging**: Saves history of changes and API responses for reference and debugging.
+-   **System Tray Integration**: Truy cập nhanh các tính năng và hướng dẫn sử dụng qua system tray icon / **System Tray Integration**: Quick access to features and usage guide via system tray icon.
 
 ## Cài đặt / Installation
 
