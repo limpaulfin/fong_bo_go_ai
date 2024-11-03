@@ -31,3 +31,8 @@ token_stats.json
 logs/api_responses.jsonl
 logs/token_stats.json
 logs/*
+
+# Ignore all .md files in rag_context
+rag_context/*.md
+# But keep README.md
+!README.md
