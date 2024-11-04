@@ -11,15 +11,15 @@ Cách kích hoạt:
 1. Double Space: Auto-correct cơ bản (không có RAG context)
 2. Double Backslash (\\): Auto-correct với RAG context từ thư mục rag_context
 3. Double Right Shift: Auto-correct cho text đã chọn (không có RAG context)
-4. Pause Break: Tương tự Double Space
+4. Scroll Lock: Tương tự Double Space
 
 Cách hoạt động:
 1. Theo dõi keyboard input (keyboard monitoring)
-2. Khi phát hiện trigger (double space/backslash/right shift/pause break):
+2. Khi phát hiện trigger (double space/backslash/right shift/scroll lock):
    - Nếu có text được chọn: sử dụng text đó
    - Nếu không: lấy text từ vị trí con trỏ đến đầu dòng
 3. Xử lý văn bản:
-   - Double Space/Right Shift/Pause Break: sửa lỗi cơ bản
+   - Double Space/Right Shift/Scroll Lock: sửa lỗi cơ bản
    - Double Backslash: sửa lỗi với RAG context để xử lý chính xác hơn
 4. Thay thế văn bản cũ bằng văn bản đã sửa
 5. Tự động thống kê và lưu log token usage
@@ -231,7 +231,10 @@ def get_correction(text):
         # Đọc context từ file
         context = read_context()
 
-        rag_context = read_rag_context() if trigger_source in ['double_backslash', 'pause_break'] else ""
+        # Thêm điều kiện mới: scroll_lock với has_selection
+        _, has_selection = get_selected_text()
+        use_rag = trigger_source == 'double_backslash' or (trigger_source == 'scroll_lock' and has_selection)
+        rag_context = read_rag_context() if use_rag else ""
 
         #print(f"RAG Context: {rag_context}")
 
@@ -453,10 +456,10 @@ def on_press(key):
 
             last_backslash_time = current_time
 
-        # Xử lý Pause Break (nếu có)
-        elif key == Key.pause:
+        # Thay thế đoạn xử lý Pause Break bằng Scroll Lock
+        elif key == Key.scroll_lock:
             should_scan = True
-            trigger_source = 'pause_break'
+            trigger_source = 'scroll_lock'  # Đổi tên trigger source
 
         else:
             if space_count > 0:
@@ -563,6 +566,11 @@ def create_tray_icon():
             os.makedirs(rag_dir)
         os.startfile(rag_dir) if os.name == 'nt' else os.system(f'xdg-open "{rag_dir}"')
 
+    def open_readme(icon):
+        """Mở file README.md"""
+        readme_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md")
+        os.startfile(readme_path) if os.name == 'nt' else os.system(f'xdg-open "{readme_path}"')
+
     # Load icon image
     try:
         image = Image.open("icon.png")
@@ -579,20 +587,26 @@ def create_tray_icon():
             enabled=False
         ),
         pystray.MenuItem(
-            "- Double Space / Pause Break / Double Right Shift để auto-correct (không có ngữ cảnh RAG)",
+            "- Double Space/Double Right Shift/Scroll Lock: Auto-correct (không RAG)",
             None,
             enabled=False
         ),
         pystray.MenuItem(
-            "- Select text rồi Pause Break/Double (Right) Shift để auto-correct (không có ngữ cảnh RAG)",
+            "- Chọn văn bản + Double Right Shift: Auto-correct (không RAG)",
             None,
             enabled=False
         ),
         pystray.MenuItem(
-            "- Double \\ để auto-correct (với ngữ cảnh RAG)",
+            "- Double Backslash (\\): Auto-correct (có RAG)",
             None,
             enabled=False
         ),
+        pystray.MenuItem(
+            "- Chọn văn bản + Scroll Lock: Auto-correct (có RAG)",
+            None,
+            enabled=False
+        ),
+        pystray.MenuItem("Open README.md", open_readme),
         pystray.MenuItem("Open Location", open_source_location),
         pystray.MenuItem("Open RAG folder (context)", open_rag_folder),
         pystray.MenuItem("Restart Script", restart_script),
@@ -602,7 +616,7 @@ def create_tray_icon():
     icon = pystray.Icon(
         "bo_go_ai",
         image,
-        "Bộ Gõ AI (Double Space/Pause Break để scan)",
+        "Bộ Gõ AI (Double Space/Scroll Lock để scan)",
         menu
     )
 
@@ -624,7 +638,7 @@ try:
     tray_icon.run_detached()
 
     while True:
-        time.sleep(0.5)
+        time.sleep(0.3)
         if should_scan:
             # Lưu clipboard trước khi bắt đầu
             save_clipboard()
