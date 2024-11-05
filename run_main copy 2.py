@@ -184,30 +184,31 @@ def read_rag_context():
                     result.append(f.read().strip())
         rag_context = '\n\n'.join(result)
         return f"""
+## QUYỀN VIẾT LẠI
+Nếu bạn cảm thấy nội dung chưa rõ nghĩa, hoặc bạn tin rằng bạn có thể viết lại hay hơn, chuẩn hơn, chính xác hơn, tốt hơn, bạn được phép làm như vậy. Hãy làm cho tốt nhé.
 
-        ## QUYỀN VIẾT LẠI
-        Nếu bạn cảm thấy nội dung chưa rõ nghĩa, hoặc bạn tin rằng bạn có thể viết lại hay hơn, chuẩn hơn, chính xác hơn, tốt hơn, bạn được phép làm như vậy. Hãy làm cho tốt nhé.
+## EXTRA CONTEXT:
+- Tham khảo thêm ngữ cảnh (context) bổ sung sau đây để auto-correct cho chính xác.
+- ngữ cảnh bổ sung (extra context) có thể là danh sách các từ khóa, các thuật ngữ chuyên ngành, các thuật ngữ tiếng anh... hoặc các thông tin khác liên quan đến văn bản cần sửa.
+- ngữ cảnh bổ sung chỉ là để tham khảo, bạn hãy dựa trên kiến thức của bạn để đưa ra kết quả chính xác nhất, thậm chí mở rộng hơn nữa, hoặc cải tiến hơn nữa, hoặc sửa lại ngữ cảnh bổ sung để đảm bảo kết quả chính xác nhất.
+- kết quả trả về (OUTPUT), cần giải thích kèm theo trong dấu ngoặc đơn thuật ngữ chính xác (terminology) phía sau mỗi ý tiếng việt để đảm bảo rằng AI hiểu đúng điều tôi muốn truyền đạt.
 
-        ## EXTRA CONTEXT:
-        - Tham khảo thêm ngữ cảnh (context) bổ sung sau đây để auto-correct cho chính xác.
-        - ngữ cảnh bổ sung (extra context) có thể là danh sách các từ khóa, các thuật ngữ chuyên ngành, các thuật ngữ tiếng anh... hoặc các thông tin khác liên quan đến văn bản cần sửa.
-        - ngữ cảnh bổ sung chỉ là để tham khảo, bạn hãy dựa trên kiến thức của bạn để đưa ra kết quả chính xác nhất, thậm chí mở rộng hơn nữa, hoặc cải tiến hơn nữa, hoặc sửa lại ngữ cảnh bổ sung để đảm bảo kết quả chính xác nhất.
-        - kết quả trả về (OUTPUT), cần giải thích kèm theo trong dấu ngoặc đơn thuật ngữ chính xác (terminology) phía sau mỗi ý tiếng việt để đảm bảo rằng AI hiểu đúng điều tôi muốn truyền đạt.
+Ví dụ 1 : Hệ thống quản trị nội dung (CMS), công cụ tự động sửa lỗi (auto correct), hệ thống đăng ký (registration system), hệ thống báo lỗi (bug report system)...
 
-        Ví dụ 1 : Hệ thống quản trị nội dung (CMS), công cụ tự động sửa lỗi (auto correct), hệ thống đăng ký (registration system), hệ thống báo lỗi (bug report system)...
+ví dụ 2:
+-- input: "đây là một ví dụ về cách sử dụng cong cụ sua loi"
+-- output: "Đây là một ví dụ về cách sử dụng công cụ tự động sửa lỗi (auto correct)."
 
-        ví dụ 2:
-        -- input: "đây là một ví dụ về cách sử dụng cong cụ sua loi"
-        -- output: "Đây là một ví dụ về cách sử dụng công cụ tự động sửa lỗi (auto correct)."
-
-        - nếu trong INPUT có các nội dung mang tính chất học thuật, khó hiểu, chuyên ngành mà bạn tin rằng người đọc sẽ không hiểu hoặc không biết hoặc sẽ nhầm lẫn, bạn cũng hay giải thích kèm theo trong dấu ngoặc đơn thuật ngữ chính xác (terminology) phía sau mỗi ý tiếng việt để đảm bảo rằng người đọc hiểu đúng điều tôi muốn truyền đạt. Các thuật ngữ này được lấy từ kiến thức của chính bạn, không phải trong ngữ cảnh bổ sung.
+- nếu trong INPUT có các nội dung mang tính chất học thuật, khó hiểu, chuyên ngành mà bạn tin rằng người đọc sẽ không hiểu hoặc không biết hoặc sẽ nhầm lẫn, bạn cũng hay giải thích kèm theo trong dấu ngoặc đơn thuật ngữ chính xác (terminology) phía sau mỗi ý tiếng việt để đảm bảo rằng người đọc hiểu đúng điều tôi muốn truyền đạt. Các thuật ngữ này được lấy từ kiến thức của chính bạn, không phải trong ngữ cảnh bổ sung.
+- nếu trong INPUT có các nội dung mang tính chất học thuật, khó hiểu, chuyên ngành mà bạn tin rằng người đọc sẽ không hiểu hoặc không biết hoặc sẽ nhầm lẫn, bạn cũng hay giải thích kèm theo trong dấu ngoặc đơn thuật ngữ chính xác (terminology) phía sau mỗi ý tiếng việt để đảm bảo rằng người đọc hiểu đúng điều tôi muốn truyền đạt. Các thuật ngữ này được lấy từ kiến thức của chính bạn, không phải trong ngữ cảnh bổ sung.
 
 
-        ĐÂY LÀ YÊU CẦU BẮT BUỘC PHẢI ĐƯỢC THỰC HIỆN, KHÔNG ĐƯỢC BỎ QUA YÊU CẦU NÀY.
+ĐÂY LÀ YÊU CẦU BẮT BUỘC PHẢI ĐƯỢC THỰC HIỆN, KHÔNG ĐƯỢC BỎ QUA YÊU CẦU NÀY.
 
-        Đây là ngữ cảnh bổ sung:
-        \"\"\" {rag_context} \"\"\"
-        """
+Đây là ngữ cảnh bổ sung:
+\"\"\" {rag_context} \"\"\"
+
+"""
     except Exception as e:
         print(f"Lỗi khi đọc file trong thư mục rag_context: {str(e)}")
         return ""
@@ -227,11 +228,9 @@ def get_correction(text):
 
     try:
         is_calling_api = True
-        """ status_thread = threading.Thread(target=show_api_status)
+        status_thread = threading.Thread(target=show_api_status)
         status_thread.daemon = True
-        status_thread.start() """
-
-        show_api_status()
+        status_thread.start()
 
         # Đọc context từ file
         context = read_context()
@@ -239,7 +238,6 @@ def get_correction(text):
         # Thêm điều kiện mới: scroll_lock với has_selection
         _, has_selection = get_selected_text()
         use_rag = trigger_source == 'double_backslash' or (trigger_source == 'scroll_lock' and has_selection)
-        # rag_context = read_rag_context() if use_rag else ""
 
         # nếu có rag thì dùng rag context (được phép viết lại hoặc sửa lại nội dung sao cho ok), nếu không thì
         rag_context = read_rag_context() if use_rag else """
@@ -249,6 +247,8 @@ def get_correction(text):
         -   tôn trọng ngôn ngữ tiếng Việt hoặc tiếng Anh
         -   tôn trọng cách tôi xuống hàng. Nếu trong nội dung INPUT của tôi có xuống hàng, xin hãy đảm bảo trả về có xuống hàng (nếu điều đó là hợp lý)
         """
+
+
 
         #print(f"RAG Context: {rag_context}")
 
@@ -282,7 +282,7 @@ def get_correction(text):
 
         # Sau khi có kết quả
         is_calling_api = False
-        # status_thread.join(timeout=1.0)
+        status_thread.join(timeout=1.0)
         # Xóa dấu ...
         clear_api_status()
 
@@ -343,10 +343,6 @@ def get_selected_text():
         selected_text = pyperclip.paste()
         has_selection = selected_text != original and selected_text.strip() != ""
 
-        # Nếu không có selection và trigger là double_right_shift, return luôn
-        if not has_selection and trigger_source == 'double_right_shift':
-            return "", False
-
         # Xử lý double backslash khi không có selection
         if trigger_source == 'double_backslash' and not has_selection:
             # Xóa 2 dấu backslash
@@ -376,10 +372,6 @@ def get_selected_text():
                 if selected_text and selected_text != original:
                     break
                 time.sleep(0.1)
-
-            # Nếu vẫn không lấy được text, return luôn
-            if not selected_text or selected_text == original:
-                return "", False
 
             # Hủy selection
             keyboard_controller.tap(Key.right)
@@ -437,8 +429,42 @@ def replace_current_line(new_text, has_selection):
                 break
             time.sleep(0.1)
 
+def is_text_input_window():
+    """
+    Kiểm tra xem cửa sổ hiện tại có phải là text input không
+    Returns:
+        bool: True nếu đang ở cửa sổ nhập text
+    """
+    try:
+        # Lấy handle của cửa sổ đang active
+        hwnd = windll.user32.GetForegroundWindow()
+        # Lấy tên class của cửa sổ
+        class_name = create_unicode_buffer(256)
+        windll.user32.GetClassNameW(hwnd, class_name, 256)
+
+        # Danh sách các class name thường dùng cho text input
+        text_input_classes = [
+            'Notepad',
+            'EDIT',  # Textbox controls
+            'Chrome_RenderWidgetHostHWND',  # Chrome
+            'MozillaWindowClass',  # Firefox
+            'Scintilla',  # Notepad++
+            'ConsoleWindowClass',  # Command Prompt
+            'CASCADIA_HOSTING_WINDOW_CLASS'  # Windows Terminal
+        ]
+
+        return any(cls.lower() in class_name.value.lower() for cls in text_input_classes)
+    except Exception as e:
+        print(f"Lỗi khi kiểm tra window: {str(e)}")
+        return True  # Mặc định cho phép trong trường hợp lỗi
+
 def on_press(key):
     global should_scan, last_space_time, space_count, last_backslash_time, last_right_shift_time, trigger_source
+
+    # Chỉ xử lý khi đang ở cửa sổ text input
+    if not is_text_input_window():
+        return
+
     try:
         # Xử lý Double Right Shift
         if key == Key.shift_r:
@@ -646,6 +672,75 @@ def create_tray_icon():
 
 # Thêm biến global để lưu trữ icon
 tray_icon = None
+
+""" # Thêm biến để theo dõi trạng thái cursor
+is_cursor_in_editable = False
+
+def on_cursor_enter():
+    global is_cursor_in_editable
+    is_cursor_in_editable = True
+
+def on_cursor_leave():
+    global is_cursor_in_editable
+    is_cursor_in_editable = False
+
+def handle_auto_correct(event):
+    # Chỉ xử lý auto-correct khi cursor đang trong vùng có thể edit
+    if not is_cursor_in_editable:
+        return
+
+    # Logic xử lý auto-correct hiện tại
+    # ...
+
+# Bind các event handlers
+n.bind('<FocusIn>', lambda e: on_cursor_enter())
+editor.bind('<FocusOut>', lambda e: on_cursor_leave())
+editor.bind('<Key>', handle_auto_correct) """
+
+# Thiết lập listener cho bàn phím
+listener = keyboard.Listener(on_press=on_press)
+listener.start()
+
+# Vòng lặp chính
+try:
+    print("Script đang chạy...")
+
+    # Khởi tạo và chạy system tray icon trong thread riêng
+    tray_icon = create_tray_icon()
+    tray_icon.run_detached()
+
+    while True:
+        time.sleep(0.3)
+        if should_scan:
+            # Lưu clipboard trước khi bắt đầu
+            save_clipboard()
+
+            try:
+                line, has_selection = get_selected_text()
+                if line.strip():
+                    print("\n" + "="*50)
+                    print(f"Văn bản gốc: '{line}'")
+                    corrected_text = get_correction(line)
+                    print(f"Văn bản đã sửa: '{corrected_text}'")
+                    print("="*50)
+                    replace_current_line(corrected_text, has_selection)
+            finally:
+                # Đảm bảo luôn restore clipboard sau khi hoàn thành hoặc có lỗi
+                restore_clipboard()
+
+            should_scan = False
+
+except KeyboardInterrupt:
+    is_calling_api = False
+    listener.stop()
+    if tray_icon:
+        tray_icon.stop()
+    print("\nĐã dừng script.")
+except Exception as e:
+    print(f"Lỗi không mong muốn: {str(e)}")
+    if tray_icon:
+        tray_icon.stop()
+
 
 # Thiết lập listener cho bàn phím
 listener = keyboard.Listener(on_press=on_press)

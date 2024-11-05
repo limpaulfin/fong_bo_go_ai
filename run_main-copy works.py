@@ -343,10 +343,6 @@ def get_selected_text():
         selected_text = pyperclip.paste()
         has_selection = selected_text != original and selected_text.strip() != ""
 
-        # Nếu không có selection và trigger là double_right_shift, return luôn
-        if not has_selection and trigger_source == 'double_right_shift':
-            return "", False
-
         # Xử lý double backslash khi không có selection
         if trigger_source == 'double_backslash' and not has_selection:
             # Xóa 2 dấu backslash
@@ -376,10 +372,6 @@ def get_selected_text():
                 if selected_text and selected_text != original:
                     break
                 time.sleep(0.1)
-
-            # Nếu vẫn không lấy được text, return luôn
-            if not selected_text or selected_text == original:
-                return "", False
 
             # Hủy selection
             keyboard_controller.tap(Key.right)

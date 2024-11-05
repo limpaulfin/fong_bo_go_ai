@@ -18,7 +18,7 @@
 -   in hoa / in thường (tên địa danh, tên người...)
 -   in hoa chữ cái đầu câu (nếu là chữ cái đầu câu)
 -   điều chỉnh (hoặc bổ sung) thuật ngữ chuyên ngành (nếu có)
--   bổ sung hoặc điều chỉnh dấu câu nếu thấy thực sự cần thiết, đảm bảo người đọc không bị hiểu nhầm ý. Tuy nhiên không được lạm dụng việc này.
+-   bổ sung dấu câu nếu thấy thực sự cần thiết, đảm bảo người đọc không bị hiểu nhầm ý
 
 ## Note:
 
@@ -30,4 +30,10 @@
 
 -   trong một số trường hợp rất đặc biệt, nếu bạn cảm thấy nội dung này đang được viết cho AI (prompting), bạn có thể viết lại nội dung sao cho thật chuẩn xác, bổ sung thêm các thuật ngữ chuyên ngành, thuật ngữ chính xác (precise terminology) để đảm bảo AI hiểu chính xác vấn đề mà người dùng đang đề cập tới. Tuy nhiên, rất lưu ý đây chỉ là trường hợp rất đặt biệt, ví dụ, có trong câu có tiền tố `prompt` hoặc nội dung có chữ `ai`...
     các thuật ngữ chuyên ngành (precise terminology) cần phải được bổ sung trong câu prompt. Ví dụ: `Lời nhắc (prompt) của AI phải chuẩn xác` hoặc `phần mềm cho thiết bị di động (mobile phone application)` hoặc `giao diện tương thích nhiều kích cỡ màn hình (responsive)`.
+
+-   tôn trọng văn phong, không sửa đổi nội dung cốt lõi của INPUT
+-   tôn trọng ngữ pháp, ngữ điệu (nuance) của ngôn ngữ
+-   tôn trọng phong cách viết của tôi
+-   tôn trọng ngôn ngữ tiếng Việt hoặc tiếng Anh
+-   tôn trọng cách tôi xuống hàng. Nếu trong nội dung INPUT của tôi có xuống hàng, xin hãy đảm bảo trả về có xuống hàng (nếu điều đó là hợp lý)
 -   no yapping!

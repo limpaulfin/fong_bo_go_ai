@@ -185,29 +185,26 @@ def read_rag_context():
         rag_context = '\n\n'.join(result)
         return f"""
 
-        ## QUYỀN VIẾT LẠI
-        Nếu bạn cảm thấy nội dung chưa rõ nghĩa, hoặc bạn tin rằng bạn có thể viết lại hay hơn, chuẩn hơn, chính xác hơn, tốt hơn, bạn được phép làm như vậy. Hãy làm cho tốt nhé.
+## EXTRA CONTEXT:
+- Tham khảo thêm ngữ cảnh (context) bổ sung sau đây để auto-correct cho chính xác.
+- ngữ cảnh bổ sung (extra context) có thể là danh sách các từ khóa, các thuật ngữ chuyên ngành, các thuật ngữ tiếng anh... hoặc các thông tin khác liên quan đến văn bản cần sửa.
+- ngữ cảnh bổ sung chỉ là để tham khảo, bạn hãy dựa trên kiến thức của bạn để đưa ra kết quả chính xác nhất, thậm chí mở rộng hơn nữa, hoặc cải tiến hơn nữa, hoặc sửa lại ngữ cảnh bổ sung để đảm bảo kết quả chính xác nhất.
+- kết quả trả về (OUTPUT), cần giải thích kèm theo trong dấu ngoặc đơn thuật ngữ chính xác (terminology) phía sau mỗi ý tiếng việt để đảm bảo rằng AI hiểu đúng điều tôi muốn truyền đạt.
 
-        ## EXTRA CONTEXT:
-        - Tham khảo thêm ngữ cảnh (context) bổ sung sau đây để auto-correct cho chính xác.
-        - ngữ cảnh bổ sung (extra context) có thể là danh sách các từ khóa, các thuật ngữ chuyên ngành, các thuật ngữ tiếng anh... hoặc các thông tin khác liên quan đến văn bản cần sửa.
-        - ngữ cảnh bổ sung chỉ là để tham khảo, bạn hãy dựa trên kiến thức của bạn để đưa ra kết quả chính xác nhất, thậm chí mở rộng hơn nữa, hoặc cải tiến hơn nữa, hoặc sửa lại ngữ cảnh bổ sung để đảm bảo kết quả chính xác nhất.
-        - kết quả trả về (OUTPUT), cần giải thích kèm theo trong dấu ngoặc đơn thuật ngữ chính xác (terminology) phía sau mỗi ý tiếng việt để đảm bảo rằng AI hiểu đúng điều tôi muốn truyền đạt.
+Ví dụ 1 : Hệ thống quản trị nội dung (CMS), công cụ tự động sửa lỗi (auto correct), hệ thống đăng ký (registration system), hệ thống báo lỗi (bug report system)...
 
-        Ví dụ 1 : Hệ thống quản trị nội dung (CMS), công cụ tự động sửa lỗi (auto correct), hệ thống đăng ký (registration system), hệ thống báo lỗi (bug report system)...
+ví dụ 2:
+-- input: "đây là một ví dụ về cách sử dụng cong cụ sua loi"
+-- output: "Đây là một ví dụ về cách sử dụng công cụ tự động sửa lỗi (auto correct)."
 
-        ví dụ 2:
-        -- input: "đây là một ví dụ về cách sử dụng cong cụ sua loi"
-        -- output: "Đây là một ví dụ về cách sử dụng công cụ tự động sửa lỗi (auto correct)."
-
-        - nếu trong INPUT có các nội dung mang tính chất học thuật, khó hiểu, chuyên ngành mà bạn tin rằng người đọc sẽ không hiểu hoặc không biết hoặc sẽ nhầm lẫn, bạn cũng hay giải thích kèm theo trong dấu ngoặc đơn thuật ngữ chính xác (terminology) phía sau mỗi ý tiếng việt để đảm bảo rằng người đọc hiểu đúng điều tôi muốn truyền đạt. Các thuật ngữ này được lấy từ kiến thức của chính bạn, không phải trong ngữ cảnh bổ sung.
+- nếu trong INPUT có các nội dung mang tính chất học thuật, khó hiểu, chuyên ngành mà bạn tin rằng người đọc sẽ không hiểu hoặc không biết hoặc sẽ nhầm lẫn, bạn cũng hay giải thích kèm theo trong dấu ngoặc đơn thuật ngữ chính xác (terminology) phía sau mỗi ý tiếng việt để đảm bảo rằng người đọc hiểu đúng điều tôi muốn truyền đạt. Các thuật ngữ này được lấy từ kiến thức của chính bạn, không phải trong ngữ cảnh bổ sung.
 
 
-        ĐÂY LÀ YÊU CẦU BẮT BUỘC PHẢI ĐƯỢC THỰC HIỆN, KHÔNG ĐƯỢC BỎ QUA YÊU CẦU NÀY.
+ĐÂY LÀ YÊU CẦU BẮT BUỘC PHẢI ĐƯỢC THỰC HIỆN, KHÔNG ĐƯỢC BỎ QUA YÊU CẦU NÀY.
 
-        Đây là ngữ cảnh bổ sung:
-        \"\"\" {rag_context} \"\"\"
-        """
+Đây là ngữ cảnh bổ sung:
+\"\"\" {rag_context} \"\"\"
+"""
     except Exception as e:
         print(f"Lỗi khi đọc file trong thư mục rag_context: {str(e)}")
         return ""
@@ -227,11 +224,9 @@ def get_correction(text):
 
     try:
         is_calling_api = True
-        """ status_thread = threading.Thread(target=show_api_status)
+        status_thread = threading.Thread(target=show_api_status)
         status_thread.daemon = True
-        status_thread.start() """
-
-        show_api_status()
+        status_thread.start()
 
         # Đọc context từ file
         context = read_context()
@@ -239,16 +234,7 @@ def get_correction(text):
         # Thêm điều kiện mới: scroll_lock với has_selection
         _, has_selection = get_selected_text()
         use_rag = trigger_source == 'double_backslash' or (trigger_source == 'scroll_lock' and has_selection)
-        # rag_context = read_rag_context() if use_rag else ""
-
-        # nếu có rag thì dùng rag context (được phép viết lại hoặc sửa lại nội dung sao cho ok), nếu không thì
-        rag_context = read_rag_context() if use_rag else """
-        -   tôn trọng văn phong, không sửa đổi nội dung cốt lõi của INPUT
-        -   tôn trọng ngữ pháp, ngữ điệu (nuance) của ngôn ngữ
-        -   tôn trọng phong cách viết của tôi
-        -   tôn trọng ngôn ngữ tiếng Việt hoặc tiếng Anh
-        -   tôn trọng cách tôi xuống hàng. Nếu trong nội dung INPUT của tôi có xuống hàng, xin hãy đảm bảo trả về có xuống hàng (nếu điều đó là hợp lý)
-        """
+        rag_context = read_rag_context() if use_rag else ""
 
         #print(f"RAG Context: {rag_context}")
 
@@ -282,7 +268,7 @@ def get_correction(text):
 
         # Sau khi có kết quả
         is_calling_api = False
-        # status_thread.join(timeout=1.0)
+        status_thread.join(timeout=1.0)
         # Xóa dấu ...
         clear_api_status()
 
@@ -343,10 +329,6 @@ def get_selected_text():
         selected_text = pyperclip.paste()
         has_selection = selected_text != original and selected_text.strip() != ""
 
-        # Nếu không có selection và trigger là double_right_shift, return luôn
-        if not has_selection and trigger_source == 'double_right_shift':
-            return "", False
-
         # Xử lý double backslash khi không có selection
         if trigger_source == 'double_backslash' and not has_selection:
             # Xóa 2 dấu backslash
@@ -376,10 +358,6 @@ def get_selected_text():
                 if selected_text and selected_text != original:
                     break
                 time.sleep(0.1)
-
-            # Nếu vẫn không lấy được text, return luôn
-            if not selected_text or selected_text == original:
-                return "", False
 
             # Hủy selection
             keyboard_controller.tap(Key.right)
