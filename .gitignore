@@ -3,6 +3,7 @@
 *.code-workspace
 .history/
 logs/
+.VSCodeCounter/
 
 # Environment files
 .env
