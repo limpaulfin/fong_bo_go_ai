@@ -36,3 +36,6 @@ logs/*
 rag_context/*.md
 # But keep README.md
 !README.md
+
+
+_ignore/

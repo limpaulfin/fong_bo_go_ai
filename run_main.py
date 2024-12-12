@@ -51,6 +51,7 @@ from PIL import Image
 import pystray
 import signal
 import sys
+from detect_device import is_lenovo
 
 # Load environment variables
 load_dotenv()
@@ -344,8 +345,8 @@ def get_selected_text():
         has_selection = selected_text != original and selected_text.strip() != ""
 
         # Nếu không có selection và trigger là double_right_shift, return luôn
-        if not has_selection and trigger_source == 'double_right_shift':
-            return "", False
+        # if not has_selection and trigger_source == 'double_right_shift':
+        #     return "", False
 
         # Xử lý double backslash khi không có selection
         if trigger_source == 'double_backslash' and not has_selection:
@@ -437,11 +438,15 @@ def replace_current_line(new_text, has_selection):
                 break
             time.sleep(0.1)
 
+# Thêm biến global để lưu trạng thái máy Lenovo
+IS_LENOVO = is_lenovo()
+
+# Sửa hàm on_press để kiểm tra điều kiện Lenovo
 def on_press(key):
     global should_scan, last_space_time, space_count, last_backslash_time, last_right_shift_time, trigger_source
     try:
-        # Xử lý Double Right Shift
-        if key == Key.shift_r:
+        # Xử lý Double Right Shift - chỉ cho máy Lenovo
+        if key == Key.shift_r and IS_LENOVO:  # Thêm điều kiện IS_LENOVO
             current_time = time.time()
             time_diff = current_time - last_right_shift_time
 
@@ -451,23 +456,22 @@ def on_press(key):
 
             last_right_shift_time = current_time
 
-        # Xử lý Double Space
-        elif key == Key.space or (isinstance(key, keyboard.KeyCode) and key.char == ' '):
-            current_time = time.time()
-            time_diff = current_time - last_space_time
+        # Các phần còn lại giữ nguyên
+        # elif key == Key.space or (isinstance(key, keyboard.KeyCode) and key.char == ' '):
+        #     current_time = time.time()
+        #     time_diff = current_time - last_space_time
 
-            if time_diff < DOUBLE_SPACE_THRESHOLD:
-                space_count += 1
-                if space_count == 2:
-                    should_scan = True
-                    trigger_source = 'double_space'
-                    space_count = 0
-            else:
-                space_count = 1
+        #     if time_diff < DOUBLE_SPACE_THRESHOLD:
+        #         space_count += 1
+        #         if space_count == 2:
+        #             should_scan = True
+        #             trigger_source = 'double_space'
+        #             space_count = 0
+        #     else:
+        #         space_count = 1
 
-            last_space_time = current_time
+        #     last_space_time = current_time
 
-        # Xử lý Double Backslash
         elif isinstance(key, keyboard.KeyCode) and key.char == '\\':
             current_time = time.time()
             time_diff = current_time - last_backslash_time
@@ -478,10 +482,9 @@ def on_press(key):
 
             last_backslash_time = current_time
 
-        # Thay thế đoạn xử lý Pause Break bằng Scroll Lock
         elif key == Key.scroll_lock:
             should_scan = True
-            trigger_source = 'scroll_lock'  # Đổi tên trigger source
+            trigger_source = 'scroll_lock'
 
         else:
             if space_count > 0:
