@@ -8,9 +8,9 @@ Chức năng chính:
 - Xử lý thông minh với context và RAG context (context-aware processing)
 
 Cách kích hoạt:
-1. Double Space: Auto-correct cơ bản (không có RAG context)
+1. Double Space: Auto-correct cơ bản (không có RAG context) ← disabled (vi cam thay kho chiu)
 2. Double Backslash (\\): Auto-correct với RAG context từ thư mục rag_context
-3. Double Right Shift: Auto-correct cho text đã chọn (không có RAG context)
+3. Double Right Shift: Auto-correct cho text đã chọn (không có RAG context) ← cung disabled (vi cam thay kho chiu)
 4. Scroll Lock: Tương tự Double Space
 
 Cách hoạt động:

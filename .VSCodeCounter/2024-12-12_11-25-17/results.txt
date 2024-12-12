@@ -1,0 +1,49 @@
+Date : 2024-12-12 11:25:17
+Directory : f:\Dropbox\dev\python_bo_go_ai
+Total : 15 files,  941 codes, 100 comments, 242 blanks, all 1283 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| Python           |          9 |        699 |         97 |        170 |        966 |
+| Markdown         |          4 |        231 |          0 |         68 |        299 |
+| pip requirements |          1 |          8 |          3 |          3 |         14 |
+| Batch            |          1 |          3 |          0 |          1 |          4 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                         | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                            |         15 |        941 |        100 |        242 |      1,283 |
+| . (Files)                                                    |          8 |        788 |         90 |        200 |      1,078 |
+| config                                                       |          1 |         11 |          3 |          4 |         18 |
+| rag_context                                                  |          1 |          3 |          0 |          4 |          7 |
+| src                                                          |          5 |        139 |          7 |         34 |        180 |
+| src\core                                                     |          2 |         83 |          3 |         20 |        106 |
+| src\ui                                                       |          1 |         15 |          1 |          5 |         21 |
+| src\utils                                                    |          2 |         41 |          3 |          9 |         53 |
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                     | language         | code       | comment    | blank      | total      |
++--------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| f:\Dropbox\dev\python_bo_go_ai\.context.md                   | Markdown         |        141 |          0 |         32 |        173 |
+| f:\Dropbox\dev\python_bo_go_ai\README.md                     | Markdown         |         62 |          0 |         23 |         85 |
+| f:\Dropbox\dev\python_bo_go_ai\config\settings.py            | Python           |         11 |          3 |          4 |         18 |
+| f:\Dropbox\dev\python_bo_go_ai\detect_device.py              | Python           |         10 |          4 |          4 |         18 |
+| f:\Dropbox\dev\python_bo_go_ai\main.py                       | Python           |         35 |          8 |         11 |         54 |
+| f:\Dropbox\dev\python_bo_go_ai\my_prompt.md                  | Markdown         |         25 |          0 |          9 |         34 |
+| f:\Dropbox\dev\python_bo_go_ai\rag_context\README.md         | Markdown         |          3 |          0 |          4 |          7 |
+| f:\Dropbox\dev\python_bo_go_ai\requirements.txt              | pip requirements |          8 |          3 |          3 |         14 |
+| f:\Dropbox\dev\python_bo_go_ai\run_bo_go_ai.bat              | Batch            |          3 |          0 |          1 |          4 |
+| f:\Dropbox\dev\python_bo_go_ai\run_main.py                   | Python           |        504 |         75 |        117 |        696 |
+| f:\Dropbox\dev\python_bo_go_ai\src\core\clipboard_manager.py | Python           |         38 |          2 |          6 |         46 |
+| f:\Dropbox\dev\python_bo_go_ai\src\core\keyboard_handler.py  | Python           |         45 |          1 |         14 |         60 |
+| f:\Dropbox\dev\python_bo_go_ai\src\ui\tray_icon.py           | Python           |         15 |          1 |          5 |         21 |
+| f:\Dropbox\dev\python_bo_go_ai\src\utils\logger.py           | Python           |         28 |          0 |          4 |         32 |
+| f:\Dropbox\dev\python_bo_go_ai\src\utils\token_tracker.py    | Python           |         13 |          3 |          5 |         21 |
+| Total                                                        |                  |        941 |        100 |        242 |      1,283 |
++--------------------------------------------------------------+------------------+------------+------------+------------+------------+
