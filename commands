@@ -1,0 +1,1 @@
+mkdir -p src/core src/utils src/ui config
