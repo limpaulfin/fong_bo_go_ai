@@ -3,16 +3,17 @@
 ## Release Notes
 
 ### v1.4 (2024-03-11)
-- **Cải tiến phím tắt**:
-  - Thêm tính năng RAG context khi chọn văn bản + Scroll Lock
-  - Tối ưu hóa xử lý phím tắt để tránh xung đột
-- **Cải thiện giao diện System Tray**:
-  - Thêm nút mở nhanh README.md
-  - Cập nhật hướng dẫn sử dụng rõ ràng hơn
-  - Phân loại chức năng theo có/không có RAG context
-- **Tối ưu hóa xử lý RAG context**:
-  - Cải thiện độ chính xác khi sử dụng ngữ cảnh bổ sung
-  - Thêm khả năng tự động nhận diện và giải thích thuật ngữ chuyên ngành
+
+-   **Cải tiến phím tắt**:
+    -   Thêm tính năng RAG context khi chọn văn bản + Scroll Lock
+    -   Tối ưu hóa xử lý phím tắt để tránh xung đột
+-   **Cải thiện giao diện System Tray**:
+    -   Thêm nút mở nhanh README.md
+    -   Cập nhật hướng dẫn sử dụng rõ ràng hơn
+    -   Phân loại chức năng theo có/không có RAG context
+-   **Tối ưu hóa xử lý RAG context**:
+    -   Cải thiện độ chính xác khi sử dụng ngữ cảnh bổ sung
+    -   Thêm khả năng tự động nhận diện và giải thích thuật ngữ chuyên ngành
 
 ## Giới thiệu / Introduction
 
@@ -23,8 +24,8 @@
 -   **Sửa lỗi thông minh**: Tự động sửa lỗi chính tả, typo và định dạng văn bản với hai chế độ: cơ bản và nâng cao (với RAG context) / **Smart Correction**: Automatically corrects spelling errors, typos, and text formatting with two modes: basic and advanced (with RAG context).
 -   **Hỗ trợ đa ngôn ngữ**: Tiếng Việt và tiếng Anh, với khả năng xử lý văn bản song ngữ / **Multilingual Support**: Vietnamese and English, with bilingual text processing capabilities.
 -   **Tùy chỉnh ngữ cảnh**:
-    - Cơ bản: Định nghĩa các quy tắc sửa lỗi trong my_prompt.md
-    - Nâng cao: Thêm các file .md vào thư mục rag_context để mở rộng ngữ cảnh
+    -   Cơ bản: Định nghĩa các quy tắc sửa lỗi trong my_prompt.md
+    -   Nâng cao: Thêm các file .md vào thư mục rag_context để mở rộng ngữ cảnh
 -   **Theo dõi thống kê**: Thống kê chi tiết số lượng token sử dụng theo ngày/tháng, phân biệt theo loại trigger / **Statistics Tracking**: Detailed token usage statistics by day/month, differentiated by trigger type.
 -   **Ghi log**: Lưu lại lịch sử các thay đổi và API responses để tham khảo và debug / **Logging**: Saves history of changes and API responses for reference and debugging.
 -   **System Tray Integration**: Truy cập nhanh các tính năng và hướng dẫn sử dụng qua system tray icon / **System Tray Integration**: Quick access to features and usage guide via system tray icon.
@@ -61,14 +62,17 @@
 2. Các phím tắt chính: / Main shortcuts:
 
     **Chế độ cơ bản (không có RAG context)**: / Basic mode (without RAG context):
+
     - Nhấn đúp phím Shift phải / Double press the Right Shift key
     - Nhấn phím Scroll Lock (không chọn text) / Press Scroll Lock (without text selection)
 
     **Chế độ nâng cao (có RAG context)**: / Advanced mode (with RAG context):
+
     - Nhấn đúp phím Backslash (\\) / Double press the Backslash key
     - Chọn văn bản + Nhấn Scroll Lock / Select text + Press Scroll Lock
 
 3. Tùy chỉnh ngữ cảnh: / Customize context:
+
     - Chỉnh sửa file `my_prompt.md` để thêm các quy tắc riêng / Edit `my_prompt.md` to add custom rules
     - Thêm file .md vào thư mục `rag_context` để mở rộng ngữ cảnh / Add .md files to `rag_context` folder for extended context
 
@@ -79,5 +83,14 @@
     - Mở thư mục RAG context / Open RAG context folder
     - Khởi động lại ứng dụng / Restart application
     - Thoát ứng dụng / Exit application
+
+## Cách kích hoạt
+
+Bộ gõ hỗ trợ 4 cách kích hoạt khác nhau:
+
+1. **Double Backslash (\\\\)**: Nhấn 2 lần phím ⟍ để kích hoạt auto-correct với RAG context
+2. **Double Right Shift**: Nhấn 2 lần phím Right Shift để kích hoạt auto-correct cho văn bản đã chọn
+3. **Scroll Lock**: Nhấn phím Scroll Lock để kích hoạt auto-correct cơ bản
+4. **Chọn văn bản + Scroll Lock**: Chọn văn bản và nhấn Scroll Lock để kích hoạt với RAG context
 
 © 2024 IRONTAN Vietnam LTD. Bản quyền thuộc về IRONTAN Vietnam LTD. Theo giấy phép GNU. / © 2024 IRONTAN Vietnam LTD. All rights reserved by IRONTAN Vietnam LTD. Under the GNU license.

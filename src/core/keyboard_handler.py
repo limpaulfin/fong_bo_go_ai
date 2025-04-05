@@ -18,8 +18,8 @@ class KeyboardHandler:
 
     def on_press(self, key):
         try:
-            # Xử lý Double Right Shift - áp dụng cho tất cả thiết bị
-            if key == Key.shift_r:
+            # Xử lý Double Right Shift - chỉ cho máy Lenovo
+            if key == Key.shift_r and self.is_lenovo:
                 current_time = time.time()
                 time_diff = current_time - self.last_right_shift_time
 
