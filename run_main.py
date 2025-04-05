@@ -8,19 +8,19 @@ Chức năng chính:
 - Xử lý thông minh với context và RAG context (context-aware processing)
 
 Cách kích hoạt:
-1. Double Space: Auto-correct cơ bản (không có RAG context) ← disabled (vi cam thay kho chiu)
-2. Double Backslash (\\): Auto-correct với RAG context từ thư mục rag_context
-3. Double Right Shift: Auto-correct cho text đã chọn (không có RAG context) ← cung disabled (vi cam thay kho chiu)
-4. Scroll Lock: Tương tự Double Space
+1. Double Backslash (\\): Auto-correct với RAG context từ thư mục rag_context
+2. Double Right Shift: Auto-correct cho text đã chọn (không có RAG context)
+3. Scroll Lock: Auto-correct cơ bản (không có RAG context)
+4. Chọn văn bản + Scroll Lock: Auto-correct với RAG context
 
 Cách hoạt động:
 1. Theo dõi keyboard input (keyboard monitoring)
-2. Khi phát hiện trigger (double space/backslash/right shift/scroll lock):
+2. Khi phát hiện trigger (double backslash/right shift/scroll lock):
    - Nếu có text được chọn: sử dụng text đó
    - Nếu không: lấy text từ vị trí con trỏ đến đầu dòng
 3. Xử lý văn bản:
-   - Double Space/Right Shift/Scroll Lock: sửa lỗi cơ bản
-   - Double Backslash: sửa lỗi với RAG context để xử lý chính xác hơn
+   - Double Right Shift/Scroll Lock: sửa lỗi cơ bản
+   - Double Backslash/Scroll Lock+Selection: sửa lỗi với RAG context để xử lý chính xác hơn
 4. Thay thế văn bản cũ bằng văn bản đã sửa
 5. Tự động thống kê và lưu log token usage
 
@@ -441,7 +441,7 @@ def replace_current_line(new_text, has_selection):
 # Thêm biến global để lưu trạng thái máy Lenovo
 IS_LENOVO = is_lenovo()
 
-# Sửa hàm on_press để kiểm tra điều kiện Lenovo
+# Sửa hàm on_press để kiểm tra ��iều kiện Lenovo
 def on_press(key):
     global should_scan, last_space_time, space_count, last_backslash_time, last_right_shift_time, trigger_source
     try:
@@ -612,16 +612,6 @@ def create_tray_icon():
             enabled=False
         ),
         pystray.MenuItem(
-            "- Double Space/Double Right Shift/Scroll Lock: Auto-correct (không RAG)",
-            None,
-            enabled=False
-        ),
-        pystray.MenuItem(
-            "- Chọn văn bản + Double Right Shift: Auto-correct (không RAG)",
-            None,
-            enabled=False
-        ),
-        pystray.MenuItem(
             "- Double Backslash (\\): Auto-correct (có RAG)",
             None,
             enabled=False
@@ -641,7 +631,7 @@ def create_tray_icon():
     icon = pystray.Icon(
         "bo_go_ai",
         image,
-        "Bộ Gõ AI (Double Space/Scroll Lock để scan)",
+        "Bộ Gõ AI (Scroll Lock/Double Backslash để scan)",
         menu
     )
 

@@ -61,7 +61,6 @@
 2. Các phím tắt chính: / Main shortcuts:
 
     **Chế độ cơ bản (không có RAG context)**: / Basic mode (without RAG context):
-    - Nhấn đúp phím Space (cách) / Double press the Space key
     - Nhấn đúp phím Shift phải / Double press the Right Shift key
     - Nhấn phím Scroll Lock (không chọn text) / Press Scroll Lock (without text selection)
 

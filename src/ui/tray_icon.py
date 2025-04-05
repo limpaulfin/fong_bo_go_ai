@@ -61,12 +61,7 @@ class SystemTrayIcon:
                 enabled=False
             ),
             pystray.MenuItem(
-                "- Double Space/Double Right Shift/Scroll Lock: Auto-correct (không RAG)",
-                None,
-                enabled=False
-            ),
-            pystray.MenuItem(
-                "- Chọn văn bản + Double Right Shift: Auto-correct (không RAG)",
+                "- Double Right Shift/Scroll Lock: Auto-correct (không RAG)",
                 None,
                 enabled=False
             ),
@@ -90,7 +85,7 @@ class SystemTrayIcon:
         return pystray.Icon(
             "bo_go_ai",
             image,
-            "Bộ Gõ AI (Double Space/Scroll Lock để scan)",
+            "Bộ Gõ AI (Scroll Lock/Double Backslash để scan)",
             menu
         )
 
