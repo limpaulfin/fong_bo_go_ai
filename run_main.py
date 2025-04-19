@@ -343,11 +343,7 @@ def get_selected_text():
         selected_text = pyperclip.paste()
         has_selection = selected_text != original and selected_text.strip() != ""
 
-        # Nếu không có selection và trigger là double_right_shift, return luôn
-        # if not has_selection and trigger_source == 'double_right_shift':
-        #     return "", False
-
-        # Xử lý double backslash khi không có selection
+        # Xử lý xóa ký tự khi sử dụng double backslash hoặc double right shift
         if trigger_source == 'double_backslash' and not has_selection:
             # Xóa 2 dấu backslash
             keyboard_controller.press(Key.backspace)
@@ -356,6 +352,8 @@ def get_selected_text():
             keyboard_controller.press(Key.backspace)
             keyboard_controller.release(Key.backspace)
             time.sleep(0.01)
+
+        # Cả double_right_shift và double_backslash đều xử lý giống nhau sau bước xóa ký tự
 
         if not has_selection:
             # Select từ vị trí hiện tại đến đầu dòng
@@ -595,12 +593,12 @@ def create_tray_icon():
             enabled=False
         ),
         pystray.MenuItem(
-            "- Double Right Shift: Auto-correct (không RAG) - mọi thiết bị",
+            "- Double Right Shift: Auto-correct (có RAG) - mọi thiết bị",
             None,
             enabled=False
         ),
         pystray.MenuItem(
-            "- Chọn văn bản + Double Right Shift: Auto-correct (không RAG)",
+            "- Chọn văn bản + Double Right Shift: Auto-correct (có RAG)",
             None,
             enabled=False
         ),
@@ -624,7 +622,7 @@ def create_tray_icon():
     icon = pystray.Icon(
         "bo_go_ai",
         image,
-        "Bộ Gõ AI (Double Space/Scroll Lock để scan)",
+        "Bộ Gõ AI (Double Right Shift/Backslash để auto-correct)",
         menu
     )
 

@@ -9,7 +9,7 @@ Fong Bo Go AI là công cụ hỗ trợ gõ và auto correct văn bản thông m
 Ứng dụng hỗ trợ nhiều cách kích hoạt khác nhau:
 
 1. **Nhấn 2 lần phím BackSlash (\\)**: Auto-correct với RAG context từ thư mục rag_context
-2. **Nhấn 2 lần phím Right Shift**: Auto-correct cho text đã chọn (không có RAG context) - hoạt động trên tất cả thiết bị
+2. **Nhấn 2 lần phím Right Shift**: Auto-correct với RAG context - hoạt động trên tất cả thiết bị
 3. **Nhấn phím Scroll Lock**: Auto-correct cơ bản (không có RAG context)
 4. **Chọn văn bản + Nhấn Scroll Lock**: Auto-correct với RAG context
 
@@ -18,10 +18,12 @@ Fong Bo Go AI là công cụ hỗ trợ gõ và auto correct văn bản thông m
 1. Ứng dụng theo dõi keyboard input trong nền
 2. Khi phát hiện trigger (double backslash/right shift/scroll lock):
     - Nếu có text được chọn: sử dụng text đó
-    - Nếu không: lấy text từ vị trí con trỏ đến đầu dòng
+    - Nếu không: lấy text từ vị trí hiện tại đến đầu dòng
 3. Xử lý văn bản:
-    - Double Right Shift/Scroll Lock: sửa lỗi cơ bản
-    - Double Backslash/Scroll Lock+Selection: sửa lỗi với RAG context để xử lý chính xác hơn
+    - Double Right Shift: sửa lỗi với RAG context để xử lý chính xác hơn
+    - Double Backslash: sửa lỗi với RAG context để xử lý chính xác hơn
+    - Scroll Lock (không có selection): sửa lỗi cơ bản
+    - Scroll Lock (có selection): sửa lỗi với RAG context
 4. Thay thế văn bản cũ bằng văn bản đã sửa
 5. Tự động thống kê và lưu log token usage
 
@@ -35,7 +37,7 @@ Fong Bo Go AI là công cụ hỗ trợ gõ và auto correct văn bản thông m
 
 ## Thư mục RAG Context
 
-Thư mục `rag_context` được sử dụng để lưu trữ các file .md chứa ngữ cảnh bổ sung. Khi kích hoạt với double backslash (\\\\), ứng dụng sẽ tham khảo các file này để đưa ra kết quả chính xác hơn.
+Thư mục `rag_context` được sử dụng để lưu trữ các file .md chứa ngữ cảnh bổ sung. Khi kích hoạt với double backslash (\\\\) hoặc double right shift, ứng dụng sẽ tham khảo các file này để đưa ra kết quả chính xác hơn.
 
 ## Các file quan trọng
 
