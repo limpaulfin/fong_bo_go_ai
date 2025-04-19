@@ -445,8 +445,8 @@ IS_LENOVO = is_lenovo()
 def on_press(key):
     global should_scan, last_space_time, space_count, last_backslash_time, last_right_shift_time, trigger_source
     try:
-        # Xử lý Double Right Shift - chỉ cho máy Lenovo
-        if key == Key.shift_r and IS_LENOVO:  # Thêm điều kiện IS_LENOVO
+        # Xử lý Double Right Shift - áp dụng cho tất cả thiết bị
+        if key == Key.shift_r:
             current_time = time.time()
             time_diff = current_time - last_right_shift_time
 
@@ -455,22 +455,6 @@ def on_press(key):
                 trigger_source = 'double_right_shift'
 
             last_right_shift_time = current_time
-
-        # Các phần còn lại giữ nguyên
-        # elif key == Key.space or (isinstance(key, keyboard.KeyCode) and key.char == ' '):
-        #     current_time = time.time()
-        #     time_diff = current_time - last_space_time
-
-        #     if time_diff < DOUBLE_SPACE_THRESHOLD:
-        #         space_count += 1
-        #         if space_count == 2:
-        #             should_scan = True
-        #             trigger_source = 'double_space'
-        #             space_count = 0
-        #     else:
-        #         space_count = 1
-
-        #     last_space_time = current_time
 
         elif isinstance(key, keyboard.KeyCode) and key.char == '\\':
             current_time = time.time()
@@ -612,7 +596,7 @@ def create_tray_icon():
             enabled=False
         ),
         pystray.MenuItem(
-            "- Double Space/Double Right Shift/Scroll Lock: Auto-correct (không RAG)",
+            "- Double Right Shift: Auto-correct (không RAG) - mọi thiết bị",
             None,
             enabled=False
         ),

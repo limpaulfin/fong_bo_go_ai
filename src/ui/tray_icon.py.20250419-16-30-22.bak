@@ -61,7 +61,7 @@ class SystemTrayIcon:
                 enabled=False
             ),
             pystray.MenuItem(
-                "- Double Right Shift: Auto-correct (không RAG) - mọi thiết bị",
+                "- Double Space/Double Right Shift/Scroll Lock: Auto-correct (không RAG)",
                 None,
                 enabled=False
             ),
