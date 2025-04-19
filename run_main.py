@@ -139,15 +139,15 @@ token_tracker = TokenUsageTracker(TOKEN_STATS_FILE)
 
 def show_api_status():
     """
-    Hiển thị trạng thái đang gọi API bằng cách thêm 3 dấu chấm
+    Hiển thị trạng thái đang gọi API bằng cách thêm '::.'
     """
     global is_calling_api
     if is_calling_api:
-        keyboard_controller.type('...')
+        keyboard_controller.type('::.')
 
 def clear_api_status():
     """
-    Xóa trạng thái API bằng cách xóa 3 dấu chấm
+    Xóa trạng thái API bằng cách xóa indicator '::.''
     """
     for _ in range(3):
         keyboard_controller.press(Key.backspace)
@@ -284,7 +284,7 @@ def get_correction(text):
         # Sau khi có kết quả
         is_calling_api = False
         # status_thread.join(timeout=1.0)
-        # Xóa dấu ...
+        # Xóa indicator '::.''
         clear_api_status()
 
         # Debug: In ra response từ API để kiểm tra
