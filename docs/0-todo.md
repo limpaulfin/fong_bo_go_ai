@@ -4,6 +4,16 @@
 
 ## Nhiệm vụ đã hoàn thành
 
+✅ Tái cấu trúc mã nguồn run_main.py thành các module nhỏ hơn
+
+-   Đã tách file run_main.py thành các module với mỗi file < 200 LOC
+-   Đã tổ chức theo cấu trúc thư mục src/ với các package: core, text_processor, ui, và utils
+-   Đã tạo file config/settings.py để quản lý các cấu hình tập trung
+-   Đã cập nhật file run_main.py để sử dụng các module mới
+-   Đã đảm bảo tất cả các file mã nguồn đều có docstring và comment hợp lý
+-   File đã cập nhật: run_main.py và tất cả các file mới trong thư mục src/ và config/
+-   Ngày hoàn thành: 2025-04-19
+
 ✅ Thống nhất chức năng double backslash (\\) và double right shift
 
 -   Đã cập nhật để cả hai phím tắt đều sử dụng RAG context

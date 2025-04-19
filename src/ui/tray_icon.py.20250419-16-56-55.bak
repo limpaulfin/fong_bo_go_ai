@@ -1,11 +1,7 @@
-"""
-Module xử lý system tray icon và menu liên quan.
-"""
 import os
 import pystray
 from PIL import Image
 import sys
-from config.settings import APP_NAME, ICON_PATH, RAG_CONTEXT_FOLDER
 
 class SystemTrayIcon:
     def __init__(self, on_quit_callback):
@@ -32,7 +28,7 @@ class SystemTrayIcon:
         def open_rag_folder(icon):
             """Mở thư mục RAG context"""
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-            rag_dir = os.path.join(base_dir, RAG_CONTEXT_FOLDER)
+            rag_dir = os.path.join(base_dir, "rag_context")
             if not os.path.exists(rag_dir):
                 os.makedirs(rag_dir)
             os.startfile(rag_dir) if os.name == 'nt' else os.system(f'xdg-open "{rag_dir}"')
@@ -46,7 +42,7 @@ class SystemTrayIcon:
         # Load icon image từ thư mục gốc của project
         try:
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-            icon_path = os.path.join(base_dir, ICON_PATH)
+            icon_path = os.path.join(base_dir, "icon.png")
             image = Image.open(icon_path)
         except Exception as e:
             print(f"Lỗi khi load icon từ {icon_path}: {str(e)}")
