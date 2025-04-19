@@ -237,11 +237,12 @@ def get_correction(text):
         # Đọc context từ file
         context = read_context()
 
-        # Cập nhật điều kiện để cả double_backslash và double_right_shift đều sử dụng RAG
+        # Thêm điều kiện mới: scroll_lock với has_selection
         _, has_selection = get_selected_text()
-        use_rag = trigger_source == 'double_backslash' or trigger_source == 'double_right_shift' or (trigger_source == 'scroll_lock' and has_selection)
+        use_rag = trigger_source == 'double_backslash' or (trigger_source == 'scroll_lock' and has_selection)
+        # rag_context = read_rag_context() if use_rag else ""
 
-        # Nếu bất kì trigger nào sử dụng RAG, thì dùng RAG context
+        # nếu có rag thì dùng rag context (được phép viết lại hoặc sửa lại nội dung sao cho ok), nếu không thì
         rag_context = read_rag_context() if use_rag else """
         -   tôn trọng văn phong, không sửa đổi nội dung cốt lõi của INPUT
         -   tôn trọng ngữ pháp, ngữ điệu (nuance) của ngôn ngữ
