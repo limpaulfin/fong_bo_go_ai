@@ -2,6 +2,15 @@
 
 ## Nhiệm vụ hiện tại
 
+⬜ Nâng cấp chức năng Double Right Shift - Autocorrect text được chọn
+
+-   Chỉnh sửa run_main.py để gọi API autocorrect khi nhấn double right shift trên text đã chọn
+-   Vẫn giữ chức năng debug để hiển thị text đã chọn và kết quả autocorrect
+-   Sử dụng RAG context để tăng độ chính xác khi autocorrect
+-   Các file cần sửa: run_main.py
+
+## Nhiệm vụ đã hoàn thành
+
 ✅ MVP - Hiển thị nội dung text đã chọn khi nhấn Double Right Shift
 
 -   Đã tạo module debug_logger.py để ghi log ra console
@@ -9,8 +18,6 @@
 -   Đã giữ nguyên chức năng khác của ứng dụng
 -   File đã cập nhật: src/utils/debug_logger.py, run_main.py
 -   Ngày hoàn thành: 2025-04-19
-
-## Nhiệm vụ đã hoàn thành
 
 ✅ Tái cấu trúc mã nguồn run_main.py thành các module nhỏ hơn
 
@@ -48,5 +55,4 @@
 ## Nhiệm vụ tiếp theo
 
 -   Kiểm tra và đảm bảo tính năng hoạt động trên tất cả các thiết bị
--   Mở rộng chức năng MVP để xử lý văn bản được chọn với RAG context
 -   Cải thiện UX cho người dùng khi sử dụng phím tắt Double Right Shift

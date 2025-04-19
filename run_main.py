@@ -48,7 +48,7 @@ from src.core.keyboard_handler import KeyboardHandler
 from src.core.clipboard_manager import ClipboardManager
 from src.text_processor.api_handler import get_correction
 from src.ui.tray_icon import SystemTrayIcon
-from src.utils.debug_logger import log_selected_text
+from src.utils.debug_logger import log_selected_text, log_correction
 
 # Tạo thư mục logs và rag_context nếu chưa tồn tại
 os.makedirs(LOG_FOLDER, exist_ok=True)
@@ -77,7 +77,7 @@ def main():
 
     try:
         print("Script đang chạy...")
-        print("Chức năng: Double Right Shift để hiển thị nội dung text đã chọn")
+        print("Chức năng: Double Right Shift để autocorrect text đã chọn")
 
         # Khởi tạo và chạy system tray icon trong thread riêng
         tray_icon = SystemTrayIcon(on_quit)
@@ -104,16 +104,14 @@ def main():
                         # Log selected text ra console
                         log_selected_text(line, keyboard_handler.trigger_source)
 
-                        # Chỉ xử lý sửa lỗi nếu không phải là Double Right Shift
-                        if keyboard_handler.trigger_source != 'double_right_shift':
-                            # Gọi API để sửa lỗi
-                            corrected_text = get_correction(line, keyboard_handler.trigger_source, has_selection)
+                        # Gọi API để sửa lỗi cho tất cả các trường hợp (bao gồm double right shift)
+                        corrected_text = get_correction(line, keyboard_handler.trigger_source, has_selection)
 
-                            print(f"Văn bản đã sửa: '{corrected_text}'")
-                            print("="*50)
+                        # Log kết quả correction
+                        log_correction(line, corrected_text, keyboard_handler.trigger_source)
 
-                            # Thay thế văn bản gốc bằng văn bản đã sửa
-                            clipboard_manager.replace_current_line(corrected_text, has_selection)
+                        # Thay thế văn bản gốc bằng văn bản đã sửa
+                        clipboard_manager.replace_current_line(corrected_text, has_selection)
                 except Exception as e:
                     print(f"Lỗi khi xử lý văn bản: {str(e)}")
 
