@@ -38,9 +38,6 @@ class ClipboardManager:
         selected_text = ""
 
         try:
-            print(f"Đang xử lý trigger: {trigger_source}")
-            print(f"Clipboard ban đầu: '{self.original_content[:20]}...' (hiển thị 20 ký tự đầu)")
-
             # Thử lấy selection hiện tại (nếu có)
             with self.keyboard.pressed(Key.ctrl):
                 self.keyboard.tap('c')
@@ -48,12 +45,6 @@ class ClipboardManager:
 
             selected_text = pyperclip.paste()
             has_selection = selected_text != self.original_content and selected_text.strip() != ""
-
-            if has_selection:
-                print(f"Đã phát hiện selection: '{selected_text[:50]}...' (hiển thị 50 ký tự đầu)")
-                print(f"Độ dài selection: {len(selected_text)} ký tự")
-            else:
-                print("Không phát hiện selection sẵn có")
 
             # Xử lý xóa ký tự khi sử dụng double backslash hoặc double right shift
             if trigger_source == 'double_backslash' and not has_selection:
@@ -68,7 +59,6 @@ class ClipboardManager:
             # Cả double_right_shift và double_backslash đều xử lý giống nhau sau bước xóa ký tự
 
             if not has_selection:
-                print("Không có selection sẵn, chọn từ vị trí hiện tại đến đầu dòng")
                 # Select từ vị trí hiện tại đến đầu dòng
                 self.keyboard.press(Key.shift)
                 self.keyboard.press(Key.home)
@@ -78,21 +68,18 @@ class ClipboardManager:
 
                 # Copy với retry
                 max_retries = 3
-                for i in range(max_retries):
-                    print(f"Thử copy lần {i+1}/{max_retries}")
+                for _ in range(max_retries):
                     with self.keyboard.pressed(Key.ctrl):
                         self.keyboard.tap('c')
                     time.sleep(0.1)
 
                     selected_text = pyperclip.paste()
                     if selected_text and selected_text != self.original_content:
-                        print(f"Đã copy thành công: '{selected_text[:50]}...' (hiển thị 50 ký tự đầu)")
                         break
                     time.sleep(0.1)
 
                 # Nếu vẫn không lấy được text, return luôn
                 if not selected_text or selected_text == self.original_content:
-                    print("Không thể lấy được text từ vị trí hiện tại đến đầu dòng")
                     return "", False
 
                 # Hủy selection
