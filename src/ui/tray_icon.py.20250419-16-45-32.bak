@@ -1,7 +1,6 @@
 import os
 import pystray
 from PIL import Image
-import sys
 
 class SystemTrayIcon:
     def __init__(self, on_quit_callback):
@@ -15,10 +14,15 @@ class SystemTrayIcon:
             self.on_quit_callback()
 
         def restart_script(icon):
-            """Restart the current script."""
-            python_exe = sys.executable
-            script_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "run_main.py")
-            os.execl(python_exe, python_exe, script_file)
+            """Khởi động lại script"""
+            icon.stop()
+            script_path = os.path.abspath(__file__)
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(script_path)))
+            if os.name == 'nt':  # Windows
+                os.system(f'start pythonw "{os.path.join(base_dir, "main.py")}"')
+            else:  # Linux/Mac
+                os.system(f'python3 "{os.path.join(base_dir, "main.py")}" &')
+            os._exit(0)
 
         def open_source_location(icon):
             """Mở thư mục chứa file mã nguồn"""
@@ -57,12 +61,12 @@ class SystemTrayIcon:
                 enabled=False
             ),
             pystray.MenuItem(
-                "- Double Right Shift: Auto-correct (có RAG) - mọi thiết bị",
+                "- Double Right Shift: Auto-correct (không RAG) - mọi thiết bị",
                 None,
                 enabled=False
             ),
             pystray.MenuItem(
-                "- Chọn văn bản + Double Right Shift: Auto-correct (có RAG)",
+                "- Chọn văn bản + Double Right Shift: Auto-correct (không RAG)",
                 None,
                 enabled=False
             ),
@@ -86,7 +90,7 @@ class SystemTrayIcon:
         return pystray.Icon(
             "bo_go_ai",
             image,
-            "Bộ Gõ AI (Double Right Shift/Backslash để auto-correct)",
+            "Bộ Gõ AI (Double Space/Scroll Lock để scan)",
             menu
         )
 
