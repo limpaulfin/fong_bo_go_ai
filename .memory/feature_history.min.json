@@ -1,0 +1,103 @@
+{
+  "features": [
+    {
+      "name": "Double Right Shift Auto-correct",
+      "implementation_stages": [
+        {
+          "stage": "Initial setup",
+          "description": "Phát hiện sự kiện Double Right Shift và lấy text được chọn",
+          "date": "2025-04-19",
+          "files": ["src/core/keyboard_handler.py"]
+        },
+        {
+          "stage": "MVP implementation",
+          "description": "Hiển thị text được chọn ra console khi nhấn Double Right Shift",
+          "date": "2025-04-19",
+          "files": ["src/utils/debug_logger.py", "run_main.py"]
+        },
+        {
+          "stage": "Full feature",
+          "description": "Auto-correct text được chọn khi nhấn Double Right Shift, sử dụng RAG context",
+          "date": "2025-04-19",
+          "files": ["run_main.py", "src/text_processor/api_handler.py", "src/utils/debug_logger.py"]
+        }
+      ],
+      "testing_notes": "Đã kiểm tra với text selection trong nhiều ứng dụng khác nhau, cải thiện logging để debug dễ dàng hơn",
+      "completion_date": "2025-04-19"
+    },
+    {
+      "name": "Debug Logger",
+      "implementation_stages": [
+        {
+          "stage": "Initial implementation",
+          "description": "Tạo module debug_logger.py với hàm log_selected_text để hiển thị text được chọn",
+          "date": "2025-04-19",
+          "files": ["src/utils/debug_logger.py"]
+        },
+        {
+          "stage": "Enhancement",
+          "description": "Thêm hàm log_correction để hiển thị chi tiết kết quả auto-correct",
+          "date": "2025-04-19",
+          "files": ["src/utils/debug_logger.py"]
+        }
+      ],
+      "testing_notes": "Module hỗ trợ debug và phát hiện vấn đề trong quá trình phát triển",
+      "completion_date": "2025-04-19"
+    },
+    {
+      "name": "Prompt Enhancement",
+      "implementation_stages": [
+        {
+          "stage": "Initial update",
+          "description": "Cập nhật my_prompt.md để thêm yêu cầu giữ cấu trúc xuống dòng",
+          "date": "2025-04-19",
+          "files": ["my_prompt.md"]
+        }
+      ],
+      "testing_notes": "Cần kiểm tra với các loại văn bản có cấu trúc phức tạp như danh sách, code, đoạn thơ",
+      "completion_date": "2025-04-19"
+    },
+    {
+      "name": "Modularization",
+      "implementation_stages": [
+        {
+          "stage": "Planning",
+          "description": "Xác định cấu trúc module và package",
+          "date": "2025-04-19",
+          "files": ["docs/0-todo.md"]
+        },
+        {
+          "stage": "Implementation",
+          "description": "Tách run_main.py thành các module nhỏ < 200 LOC",
+          "date": "2025-04-19",
+          "files": [
+            "src/core/keyboard_handler.py",
+            "src/core/clipboard_manager.py",
+            "src/text_processor/api_handler.py",
+            "src/text_processor/context_handler.py",
+            "src/ui/tray_icon.py",
+            "src/utils/logger.py",
+            "src/utils/token_tracker.py",
+            "config/settings.py"
+          ]
+        }
+      ],
+      "testing_notes": "Đã kiểm tra tất cả tính năng sau khi modularization để đảm bảo không có regression",
+      "completion_date": "2025-04-19"
+    },
+    {
+      "name": "Cross-platform Double Right Shift",
+      "implementation_stages": [
+        {
+          "stage": "Update",
+          "description": "Loại bỏ điều kiện is_lenovo trong xử lý Double Right Shift",
+          "date": "2025-04-19",
+          "files": ["src/core/keyboard_handler.py"]
+        }
+      ],
+      "testing_notes": "Double Right Shift giờ hoạt động trên tất cả thiết bị",
+      "completion_date": "2025-04-19"
+    }
+  ],
+  "last_updated": "2025-04-19"
+}
