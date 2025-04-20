@@ -1,0 +1,23 @@
+{
+  "tieuDe": "Ví dụ JSON RAG Context",
+  "moTa": "File JSON mẫu để kiểm tra chức năng đọc file JSON trong RAG context",
+  "danhSachThuatNgu": [
+    {
+      "thuatNgu": "RAG",
+      "moTa": "Retrieval-Augmented Generation - Kỹ thuật sinh văn bản được tăng cường bằng truy xuất thông tin"
+    },
+    {
+      "thuatNgu": "NLP",
+      "moTa": "Natural Language Processing - Xử lý ngôn ngữ tự nhiên"
+    },
+    {
+      "thuatNgu": "AI",
+      "moTa": "Artificial Intelligence - Trí tuệ nhân tạo"
+    },
+    {
+      "thuatNgu": "ML",
+      "moTa": "Machine Learning - Học máy"
+    }
+  ],
+  "ghiChu": "File này được tạo để kiểm tra chức năng đọc file JSON trong thư mục rag_context"
+}

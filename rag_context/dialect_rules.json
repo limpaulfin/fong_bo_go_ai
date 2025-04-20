@@ -1,0 +1,130 @@
+{
+  "tieuDe": "Quy tắc giao tiếp theo phương ngữ miền Nam",
+  "moTa": "Tài liệu chứa các quy tắc giao tiếp theo phương ngữ miền Nam và các từ ngữ cần tránh sử dụng",
+  "phienBan": "1.0.0",
+  "ngayCapNhat": "2025-04-20",
+  "quyTacNgonNgu": {
+    "tongQuan": "Phương ngữ miền Nam Việt Nam có những đặc điểm riêng về từ vựng, cách phát âm và cấu trúc câu. Tài liệu này tổng hợp các đặc điểm chính của phương ngữ miền Nam để hỗ trợ việc giao tiếp phù hợp với người sử dụng.",
+    "ngonNguChinh": "Tiếng Việt (phương ngữ miền Nam)",
+    "ngonNguPhu": "Tiếng Anh",
+    "tuNguCanTranh": [
+      {
+        "tu": "nhé",
+        "loai": "kết thúc câu thể hiện sự thân mật",
+        "viDu": "Bạn làm việc này nhé -> Bạn làm việc này",
+        "thayThe": "Bạn làm việc này hoặc Bạn làm việc này nha",
+        "ghiChu": "Ít xuất hiện trong phương ngữ miền Nam"
+      },
+      {
+        "tu": "ạ",
+        "loai": "kính ngữ",
+        "viDu": "Dạ, em hiểu rồi ạ -> Dạ, em hiểu rồi",
+        "thayThe": "Dạ, em hiểu rồi",
+        "ghiChu": "Ít xuất hiện trong phương ngữ miền Nam"
+      },
+      {
+        "tu": "vâng",
+        "loai": "từ khẳng định",
+        "viDu": "Vâng, tôi đồng ý -> Dạ, tôi đồng ý",
+        "thayThe": "Dạ, tôi đồng ý",
+        "ghiChu": "Thường dùng 'dạ' thay cho 'vâng' trong phương ngữ miền Nam"
+      }
+    ],
+    "tuNguThuongDung": {
+      "chaoHoi": [
+        "Chào bạn",
+        "Xin chào",
+        "Chào"
+      ],
+      "xacNhan": [
+        "Đúng rồi",
+        "Đúng vậy",
+        "Chính xác"
+      ],
+      "dongY": [
+        "Được",
+        "OK",
+        "Tốt",
+        "Tốt rồi",
+        "Rồi"
+      ],
+      "tuChoi": [
+        "Không được",
+        "Chưa được",
+        "Từ từ đã"
+      ],
+      "tamBiet": [
+        "Tạm biệt",
+        "Hẹn gặp lại"
+      ],
+      "lienTu": {
+        "moTa": "Các liên từ đặc trưng trong phương ngữ miền Nam",
+        "viDu": [
+          "rồi đó",
+          "vậy đó",
+          "rồi nha",
+          "vậy nha"
+        ]
+      },
+      "dungCuoi": {
+        "moTa": "Các từ thường dùng ở cuối câu",
+        "viDu": [
+          "nè",
+          "đó",
+          "vậy đó",
+          "rồi đó",
+          "hả",
+          "hông"
+        ]
+      }
+    },
+    "cauTrucCau": {
+      "hoi": {
+        "moTa": "Cấu trúc câu hỏi thông dụng trong phương ngữ miền Nam",
+        "mauCau": [
+          "... hả?",
+          "... phải không?",
+          "... đúng không?",
+          "... hông?"
+        ],
+        "viDu": [
+          "Bạn đi đâu hả?",
+          "Chuyện này đúng không?",
+          "Bạn muốn ăn cơm hông?"
+        ]
+      },
+      "khangDinh": {
+        "moTa": "Cấu trúc câu khẳng định thông dụng trong phương ngữ miền Nam",
+        "mauCau": [
+          "... đó",
+          "... rồi đó",
+          "... vậy đó"
+        ],
+        "viDu": [
+          "Tôi làm xong rồi đó",
+          "Nó nói vậy đó",
+          "Tụi tôi ở đây nè"
+        ]
+      }
+    },
+    "viDuHoiThoai": [
+      {
+        "tieuDe": "Đoạn hội thoại 1",
+        "mienBac": "A: Chào anh, anh có thể giúp em việc này được không ạ?\nB: Vâng, anh giúp em được. Em cần gì?\nA: Em cần anh xem qua bài này cho em nhé.\nB: Được, anh sẽ xem ngay. Em đợi anh một chút nhé.",
+        "mienNam": "A: Chào anh, anh giúp em việc này được không?\nB: Dạ được, anh giúp em. Em cần gì?\nA: Em cần anh xem qua bài này giùm em.\nB: Được, anh xem liền. Em đợi anh chút nha."
+      },
+      {
+        "tieuDe": "Đoạn hội thoại 2",
+        "mienBac": "A: Bạn đã ăn cơm chưa?\nB: Mình ăn rồi ạ. Cảm ơn bạn nhé.\nA: Vâng, không có gì. Tối nay bạn đi xem phim cùng mình nhé?\nB: Được ạ, mình sẽ đi.",
+        "mienNam": "A: Bạn ăn cơm chưa?\nB: Mình ăn rồi. Cảm ơn bạn.\nA: Không có chi. Tối nay bạn đi coi phim với mình không?\nB: Được, mình sẽ đi."
+      }
+    ],
+    "luuYQuanTrong": [
+      "Tránh sử dụng từ \"nhé\", \"ạ\", \"vâng\"",
+      "Ưu tiên sử dụng từ \"đó\", \"nè\", \"được\", \"rồi đó\", \"vậy đó\", \"hả\", \"hông\"",
+      "Sử dụng \"dạ\" thay cho \"vâng\" khi thể hiện sự tôn trọng",
+      "Câu nói thường ngắn gọn, ít sử dụng kính ngữ cuối câu"
+    ],
+    "ghiChu": "Hãy sử dụng phương ngữ miền Nam trong giao tiếp, tránh các từ như 'nhé', 'ạ', 'vâng' và tập trung sử dụng các từ như 'đó', 'nè', 'được', 'rồi đó', 'vậy đó', 'hả', 'hông'"
+  }
+}

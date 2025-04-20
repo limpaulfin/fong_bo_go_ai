@@ -2,7 +2,6 @@
 Module xử lý context và RAG context
 """
 import os
-import json
 from config.settings import MY_PROMPT, RAG_CONTEXT_FOLDER
 
 def read_context():
@@ -24,8 +23,7 @@ def read_context():
 
 def read_rag_context():
     """
-    Scan và tìm file *.md và *.json (ngoại trừ file `README.md`) trong toàn bộ thư mục `rag_context` và trả về 1 chuỗi.
-    Mỗi file sẽ cách nhau 1 dòng mới.
+    Scan và tìm file *.md (ngoại trừ file `README.md`) trong toàn bộ thư mục `rag_context` và trả về 1 chuỗi. Mỗi file .md sẽ cách nhau 1 dòng mới.
     """
     result = []
     directory = RAG_CONTEXT_FOLDER
@@ -35,20 +33,9 @@ def read_rag_context():
             os.makedirs(directory)
 
         for filename in os.listdir(directory):
-            file_path = os.path.join(directory, filename)
-            # Bỏ qua README.md và các thư mục
-            if filename == 'README.md' or os.path.isdir(file_path):
-                continue
-
-            # Xử lý cả file .md và .json như file text thông thường
-            if filename.endswith('.md') or filename.endswith('.json'):
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    content = f.read().strip()
-                    if filename.endswith('.json'):
-                        result.append(f"JSON từ file {filename}:\n{content}")
-                    else:
-                        result.append(content)
-
+            if filename.endswith('.md') and filename != 'README.md':
+                with open(os.path.join(directory, filename), 'r', encoding='utf-8') as f:
+                    result.append(f.read().strip())
         rag_context = '\n\n'.join(result)
         return f"""
 

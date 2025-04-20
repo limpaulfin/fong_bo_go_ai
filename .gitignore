@@ -34,9 +34,11 @@ logs/token_stats.json
 logs/*
 
 # Ignore all .md files in rag_context
-rag_context/*.md
+#rag_context/*.md
+# Ignore all .json files in rag_context
+#rag_context/*.json
 # But keep README.md
-!README.md
+!rag_context/README.md
 
 
 _ignore/

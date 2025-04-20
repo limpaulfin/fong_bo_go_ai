@@ -40,14 +40,21 @@ def read_rag_context():
             if filename == 'README.md' or os.path.isdir(file_path):
                 continue
 
-            # Xử lý cả file .md và .json như file text thông thường
-            if filename.endswith('.md') or filename.endswith('.json'):
+            # Xử lý file .md
+            if filename.endswith('.md'):
                 with open(file_path, 'r', encoding='utf-8') as f:
-                    content = f.read().strip()
-                    if filename.endswith('.json'):
-                        result.append(f"JSON từ file {filename}:\n{content}")
-                    else:
-                        result.append(content)
+                    result.append(f.read().strip())
+
+            # Xử lý file .json
+            elif filename.endswith('.json'):
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        json_data = json.load(f)
+                        # Format JSON để dễ đọc
+                        json_content = json.dumps(json_data, ensure_ascii=False, indent=2)
+                        result.append(f"JSON từ file {filename}:\n{json_content}")
+                except json.JSONDecodeError as e:
+                    print(f"Lỗi khi đọc file JSON {filename}: {str(e)}")
 
         rag_context = '\n\n'.join(result)
         return f"""
