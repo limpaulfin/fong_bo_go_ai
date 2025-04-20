@@ -1,0 +1,19 @@
+{
+  "tieuDe": "Thông tin người dùng và quy tắc định dạng văn bản",
+  "phienBan": "1.0.0",
+  "ngayCapNhat": "2025-04-20",
+  "thongTinNguoiDung": {
+    "hoTen": "Lâm Thanh Phong",
+    "luuY": "Lưu ý đúng tên, không phải 'Lâm Thành Phong'"
+  },
+  "quyTacDinhDangVanBan": {
+    "chuHoa_ChuThuong": {
+      "moTa": "Sử dụng chữ hoa và chữ thường hợp lý",
+      "chiTiet": "Tuân theo quy tắc chuẩn tắc tiếng Việt học thuật"
+    },
+    "danhDauDoanVan": {
+      "moTa": "Đảm bảo xuống dòng hợp lý",
+      "chiTiet": "Không nên viết quá dính với nhau"
+    }
+  }
+}
