@@ -4,7 +4,7 @@ Module xử lý các cuộc gọi đến OpenAI API và xử lý kết quả
 import json
 import re
 from openai import OpenAI
-from config.settings import OPENAI_API_KEY, TEMPERATURE, MODEL_NAME
+from config.settings import OPENAI_API_KEY, TEMPERATURE
 from src.utils.logger import APILogger
 from src.utils.token_tracker import TokenUsageTracker
 from src.text_processor.context_handler import read_context, read_rag_context, get_no_rag_context
@@ -83,7 +83,7 @@ def get_correction(text, trigger_source, has_selection):
         print(f"Prompt: {prompt}")
 
         completion = client.chat.completions.create(
-            model=MODEL_NAME,
+            model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "Bạn là một hệ thống sửa lỗi văn bản cực kỳ thông minh và tiên tiến."},
                 {"role": "user", "content": prompt}
