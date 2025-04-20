@@ -18,17 +18,17 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 
 def show_api_status():
     """
-    Hiển thị trạng thái đang gọi API bằng cách thêm '::.'
+    Hiển thị trạng thái đang gọi API bằng cách thêm '::..'
     """
     global is_calling_api
     if is_calling_api:
-        keyboard_controller.type('::.')
+        keyboard_controller.type('::..')
 
 def clear_api_status():
     """
-    Xóa trạng thái API bằng cách xóa indicator '::.''
+    Xóa trạng thái API bằng cách xóa indicator '::..''
     """
-    for _ in range(3):
+    for _ in range(4):
         keyboard_controller.press(Key.backspace)
         keyboard_controller.release(Key.backspace)
         import time
