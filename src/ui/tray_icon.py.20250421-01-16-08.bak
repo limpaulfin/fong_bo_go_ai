@@ -5,7 +5,7 @@ import os
 import pystray
 from PIL import Image
 import sys
-from config.settings import APP_NAME, ICON_PATH, RAG_CONTEXT_FOLDER, MODEL_NAME
+from config.settings import APP_NAME, ICON_PATH, RAG_CONTEXT_FOLDER
 
 class SystemTrayIcon:
     def __init__(self, on_quit_callback):
@@ -90,7 +90,7 @@ class SystemTrayIcon:
         return pystray.Icon(
             "bo_go_ai",
             image,
-            f"{APP_NAME} ({MODEL_NAME})",
+            "Bộ Gõ AI (Double Right Shift/Backslash để auto-correct)",
             menu
         )
 
