@@ -14,6 +14,17 @@
     "danhDauDoanVan": {
       "moTa": "Đảm bảo xuống dòng hợp lý",
       "chiTiet": "Không nên viết quá dính với nhau"
+    },
+    "tuNguDacBiet": {
+      "moTa": "Xử lý các từ ngữ đặc biệt theo phương ngữ miền Nam",
+      "chiTiet": [
+        {
+          "tu": "ah",
+          "xuLy": "Chuyển thành 'á' thay vì 'hả'",
+          "viDu": "tinh khi nao lay chong ah? -> Tính khi nào lấy chồng á?",
+          "ghiChu": "Đảm bảo văn bản có ý nghĩa rõ ràng, không chỉ đúng chính tả"
+        }
+      ]
     }
   }
 }
