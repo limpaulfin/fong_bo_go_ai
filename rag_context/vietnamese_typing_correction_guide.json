@@ -42,13 +42,24 @@
             "tenLoi": "Bảo tồn đại từ xưng hô 'tui'",
             "viDu": "tui muốn giữ nguyên thay vì sửa thành tôi muốn",
             "huongDan": "Giữ nguyên từ 'tui' khi đóng vai trò chủ ngữ trong câu"
+        },
+        {
+            "id": 8,
+            "tenLoi": "Chuyển đổi 'ah' thành 'á' thay vì 'hả'",
+            "viDu": "tinh khi nao lay chong ah? -> Tính khi nào lấy chồng á?",
+            "saiViDu": "tinh khi nao lay chong ah? -> Tình khi nào lấy chồng hả? ❌",
+            "dungViDu": "tinh khi nao lay chong ah? -> Tính khi nào lấy chồng á? ✅",
+            "huongDan": "Nhận diện 'ah' cuối câu và chuyển đổi thành 'á' thay vì 'hả'",
+            "luuY": "Trong phương ngữ miền Nam, 'ah' thường được sử dụng để thể hiện 'á' thay vì 'hả'"
         }
     ],
     "nguyenTacSuaLoi": [
         "Sử dụng từ điển tiếng Việt để xác định từ đúng",
         "Phân tích ngữ cảnh để chọn cách sửa phù hợp",
         "Ưu tiên giữ nguyên đại từ xưng hô theo ngữ cảnh",
-        "Cung cấp gợi ý sửa trước khi áp dụng thay đổi"
+        "Cung cấp gợi ý sửa trước khi áp dụng thay đổi",
+        "Tôn trọng các thói quen gõ phổ biến theo phương ngữ, như 'ah' thành 'á' thay vì 'hả'",
+        "Đảm bảo văn bản sau khi sửa phải có ý nghĩa rõ ràng, không chỉ đúng chính tả"
     ],
     "quyTrinhTuDongHoa": [
         "Phát hiện lỗi tiềm năng trong văn bản",
@@ -57,5 +68,10 @@
         "Đề xuất cách sửa phù hợp",
         "Cho phép người dùng xác nhận trước khi thay đổi",
         "Lưu lại các lỗi thường gặp để cải thiện thuật toán"
+    ],
+    "hieuSauNgonNgu": [
+        "Hiểu sâu về ngữ nghĩa câu là cần thiết để sửa lỗi chính xác",
+        "Chỉ sửa lỗi chính tả khi không làm thay đổi ý nghĩa dự định của người viết",
+        "Cân nhắc phương ngữ và thói quen gõ của người dùng khi sửa lỗi"
     ]
 }
