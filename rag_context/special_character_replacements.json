@@ -1,0 +1,104 @@
+{
+  "title": "Quy tắc thay thế ký tự đặc biệt",
+  "description": "Chuẩn hóa các chuỗi ký tự đặc biệt thường gặp thành dạng chuẩn Unicode hoặc dễ xử lý hơn.",
+  "processing_hints": [
+    "QUAN TRỌNG: Logic xử lý PHẢI bỏ qua việc áp dụng các quy tắc thay thế này bên trong các khối mã (code blocks), ví dụ như các đoạn được bao bọc bởi dấu backtick (```) hoặc các định dạng code khác, để tránh làm hỏng cú pháp code."
+  ],
+  "rules": [
+    {
+      "id": 1,
+      "from": "->",
+      "to": "→",
+      "description": "Mũi tên phải chuẩn Unicode.",
+      "context": "arrow"
+    },
+    {
+      "id": 2,
+      "from": "-->",
+      "to": "→",
+      "description": "Biến thể mũi tên phải.",
+      "context": "arrow"
+    },
+    {
+      "id": 3,
+      "from": "=>",
+      "to": "⇒",
+      "description": "Mũi tên suy ra chuẩn Unicode.",
+      "context": "arrow"
+    },
+    {
+      "id": 4,
+      "from": "<-",
+      "to": "←",
+      "description": "Mũi tên trái chuẩn Unicode.",
+      "context": "arrow"
+    },
+    {
+      "id": 5,
+      "from": "<--",
+      "to": "←",
+      "description": "Biến thể mũi tên trái.",
+      "context": "arrow"
+    },
+    {
+      "id": 6,
+      "from": "<=",
+      "to": "≤",
+      "description": "So sánh nhỏ hơn hoặc bằng chuẩn Unicode.",
+      "context": "comparison"
+    },
+    {
+      "id": 7,
+      "from": ">=",
+      "to": "≥",
+      "description": "So sánh lớn hơn hoặc bằng chuẩn Unicode.",
+      "context": "comparison"
+    },
+    {
+      "id": 8,
+      "from": "!=",
+      "to": "≠",
+      "description": "So sánh khác chuẩn Unicode.",
+      "context": "comparison"
+    },
+    {
+      "id": 9,
+      "from": "...",
+      "to": "…",
+      "description": "Dấu chấm lửng chuẩn Unicode.",
+      "context": "punctuation"
+    },
+    {
+      "id": 10,
+      "from": "+/-",
+      "from2": "+-",
+      "to": "±",
+      "description": "Ký hiệu cộng trừ chuẩn Unicode.",
+      "context": "math"
+    },
+    {
+      "id": 11,
+      "from": "(c)",
+      "to": "©",
+      "description": "Ký hiệu Copyright chuẩn Unicode (không phân biệt hoa/thường).",
+      "context": "symbol",
+      "case_insensitive": true
+    },
+    {
+      "id": 12,
+      "from": "(R)",
+      "to": "®",
+      "description": "Ký hiệu Registered Trademark chuẩn Unicode (không phân biệt hoa/thường).",
+      "context": "symbol",
+      "case_insensitive": true
+    },
+    {
+        "id": 13,
+        "from": "(TM)",
+        "to": "™",
+        "description": "Ký hiệu Trademark chuẩn Unicode (không phân biệt hoa/thường).",
+        "context": "symbol",
+        "case_insensitive": true
+    }
+  ]
+}

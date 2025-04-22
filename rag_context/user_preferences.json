@@ -15,6 +15,17 @@
       "moTa": "Đảm bảo xuống dòng hợp lý",
       "chiTiet": "Không nên viết quá dính với nhau"
     },
+    "dauCauCuoiCau": {
+      "moTa": "Xử lý dấu câu cuối câu linh hoạt (Ưu tiên không thêm dấu chấm)",
+      "chiTiet": "Hạn chế tự động thêm dấu chấm '.' cuối câu, đặc biệt với các câu ngắn hoặc mang tính hội thoại. Chỉ thêm dấu chấm khi câu rõ ràng là một phát biểu hoàn chỉnh, trang trọng.",
+      "viDu": [
+        "Câu đầy đủ ý, trang trọng. -> Thêm chấm",
+        "theo toi thi, dua tren noi dung nay -> Không thêm chấm",
+        "Van chua dung y toi -> Không thêm chấm",
+        "Khi đang nghĩ... -> Không thêm chấm",
+        "Danh sách: A, B, C -> Không thêm chấm"
+      ]
+    },
     "suaLoiTelex": {
       "moTa": "Xử lý các lỗi gõ phím Telex thường gặp",
       "chiTiet": [
