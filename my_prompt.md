@@ -18,7 +18,7 @@
 -   in hoa / in thường (tên địa danh, tên người...)
 -   in hoa chữ cái đầu câu (nếu là chữ cái đầu câu)
 -   điều chỉnh (hoặc bổ sung) thuật ngữ chuyên ngành (nếu có)
--   bổ sung hoặc điều chỉnh dấu câu nếu thấy thực sự cần thiết, đảm bảo người đọc không bị hiểu nhầm ý. Tuy nhiên không được lạm dụng việc này.
+-   **DẤU CÂU CUỐI CÂU:** Hạn chế tối đa việc bổ sung hoặc điều chỉnh dấu câu cuối câu (đặc biệt là dấu chấm '.'), chỉ thực hiện khi câu rõ ràng là một phát biểu hoàn chỉnh, trang trọng và việc thiếu dấu câu gây khó hiểu. TUYỆT ĐỐI KHÔNG thêm dấu chấm vào các câu ngắn, câu mang tính hội thoại, liệt kê, hoặc chưa trọn ý.
 -   QUAN TRỌNG: nếu INPUT có cấu trúc xuống dòng (\n), OUTPUT cũng phải giữ nguyên cấu trúc xuống dòng tương ứng, trừ khi việc thay đổi cấu trúc là cần thiết để văn bản dễ đọc hơn và có ý nghĩa hơn.
 
 ## Note:
