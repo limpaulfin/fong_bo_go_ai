@@ -1,0 +1,76 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+---
+description: Last updated 2025-04-24 13:15:24
+globs:
+alwaysApply: true
+---
+
+# Python Bo Go AI Rules
+
+## Trí nhớ dự án (.memory)
+
+- Luôn CRUD (Create, Read, Update, Delete) trí nhớ dự án vào thư mục `.memory/*`
+- Sử dụng file JSON thông thường (pretty-printed) cho việc lưu trữ. KHÔNG sử dụng minified JSON.
+- Mỗi file nên giới hạn ở ngưỡng dưới 200 LOC để dễ quản lý.
+- Cấu trúc thư mục `.memory`:
+  - `manifest.json`: File tổng hợp, liệt kê tất cả các file trong bộ nhớ và vị trí của chúng (Short-term/Long-term).
+  - `Short-term/`: Chứa các file liên quan đến trạng thái hiện tại, công việc đang làm, thay đổi thường xuyên.
+  - `Long-term/`: Chứa các file kiến thức nền tảng, cấu trúc dự án, quyết định kiến trúc, ít thay đổi.
+- Quy trình CRUD:
+  - **Read**: Khi bắt đầu, đọc `manifest.json` và các file liên quan trong `Short-term`/`Long-term` để có ngữ cảnh.
+  - **Create**:
+    - *Kiểm tra trước khi tạo:* Dùng `grep` hoặc công cụ tương tự để tìm kiếm trong `.memory/*` nhằm đảm bảo thông tin chưa tồn tại (DRY).
+    - Xác minh tính nhất quán, phù hợp và thận trọng của thông tin mới.
+    - Tạo file mới trong thư mục phù hợp (`Short-term` hoặc `Long-term`) khi có thông tin/kiến thức mới. Cập nhật `manifest.json`.
+  - **Update**:
+    - *Kiểm tra trước khi cập nhật:* Dùng `grep` hoặc công cụ tương tự để tìm kiếm thông tin liên quan, đảm bảo tính nhất quán và tránh trùng lặp không cần thiết.
+    - Xác minh tính phù hợp và thận trọng của thay đổi.
+    - Sửa file khi thông tin cần cập nhật. Nếu file chuyển từ trạng thái thường xuyên thay đổi sang ổn định (hoặc ngược lại), cân nhắc di chuyển giữa `Short-term` và `Long-term` và cập nhật `manifest.json`.
+  - **Delete**: Xóa thông tin không còn chính xác. Cập nhật `manifest.json`.
+
+## Phân loại Bộ nhớ
+
+- **Short-term Memory (`.memory/Short-term/`)**
+  - `activeContext.json`: Trạng thái phát triển hiện tại, các biến ngữ cảnh đang hoạt động.
+  - `progress.json`: Trạng thái và theo dõi tiến độ của task hiện tại.
+  - `feature_history.json`: Lịch sử các tính năng đã thực hiện gần đây hoặc đang phát triển.
+  - `short-term-memory.json`: Ghi chú nhanh, thông tin tạm thời cho phiên làm việc.
+- **Long-term Memory (`.memory/Long-term/`)**
+  - `projectbrief.json`: Tóm tắt dự án.
+  - `productContext.json`: Góc nhìn từ phía doanh nghiệp và người dùng.
+  - `systemPatterns.json`: Kiến trúc kỹ thuật và quyết định.
+  - `techContext.json`: Môi trường và công nghệ phát triển.
+  - `index.json`: Thông tin tổng quan và tham chiếu đến các file khác trong Long-term.
+  - `project_structure.json`: Cấu trúc project và các thành phần chính.
+  - `architecture.json`: Chi tiết kiến trúc và design patterns của ứng dụng.
+  - `api_usage.json`: Thông tin về sử dụng API (ví dụ: OpenAI) và best practices.
+  - `tech_tips.json`: Các lưu ý kỹ thuật quan trọng và tips.
+  - `user_preferences.json`: Các tùy chọn, cấu hình của người dùng.
+  - `implementation_details.json`: Chi tiết triển khai các thành phần quan trọng.
+
+*Lưu ý: `readme.md` trong `.memory` có thể giữ lại để giải thích chung.*
+
+## Memory Refresh Process
+
+Khi nhận được yêu cầu "refresh memory", "update memory", hoặc "align memory", hãy thực hiện quy trình sau:
+
+1.  **Chuẩn bị:**
+    *   Tạo hoặc xóa sạch file log tạm thời: `.memory/Short-term/memory_refresh_log.md`.
+    *   Ghi timestamp bắt đầu vào file log.
+2.  **Quét và Căn chỉnh:**
+    *   Đọc `manifest.json` để lấy danh sách tất cả các file trong bộ nhớ (`Short-term` và `Long-term`).
+    *   Duyệt qua **từng file** trong danh sách:
+        *   Đọc nội dung file.
+        *   **So sánh/Đối chiếu:** Đối chiếu thông tin trong file với trạng thái hiện tại của codebase, tài liệu dự án, hoặc các nguồn thông tin liên quan khác.
+        *   **Đánh giá:** Xác định xem nội dung có còn chính xác, nhất quán, phù hợp và cập nhật hay không.
+        *   **Cập nhật (nếu cần):** Nếu phát hiện thông tin lỗi thời, không nhất quán hoặc không phù hợp, hãy thực hiện chỉnh sửa cần thiết trực tiếp trên file đó.
+        *   **Ghi log:** Ghi lại tên file đã quét, kết quả đánh giá (đã cập nhật, không cần cập nhật, phát hiện vấn đề X...), và các thay đổi đã thực hiện (nếu có) vào file `memory_refresh_log.md`.
+3.  **Hoàn tất:**
+    *   Ghi timestamp kết thúc vào file log.
+    *   Thông báo cho người dùng về kết quả quá trình refresh, trích dẫn thông tin từ file log nếu cần thiết.
+
+*Mục tiêu:* Đảm bảo bộ nhớ dự án luôn phản ánh đúng tình trạng hiện tại, tuân thủ các nguyên tắc Nhất quán (Consistency), Phù hợp (Matching concept), và Cập nhật (Up-to-date).

@@ -1,0 +1,36 @@
+{
+  "description": "Quy tắc sửa lỗi gõ tắt tiếng Việt thường gặp",
+  "rules": [
+    {
+      "input_pattern": "p an r ne",
+      "output": "Phong ăn rồi nè.",
+      "context": "Đối thoại thông thường",
+      "notes": "Quy tắc cụ thể cho cụm từ."
+    },
+    {
+      "input_pattern": "(?i)\\b(p|fong)\\b",
+      "output": "Phong",
+      "context": "Đầu câu hoặc trong ngữ cảnh đối thoại, cần xác nhận thêm ngữ cảnh để tránh sai sót.",
+      "notes": "Sử dụng regex (?i) để không phân biệt hoa thường và \\b để khớp từ đơn lẻ."
+    },
+    {
+      "input_pattern": "(?i)\\br\\b",
+      "output": "rồi",
+      "context": "Thường đứng cuối câu hoặc sau động từ.",
+      "notes": "Cần cẩn thận vì 'r' cũng có thể là chữ cái bình thường."
+    },
+    {
+      "input_pattern": "(?i)\\bf([a-zàáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]+)",
+      "output": "ph$1",
+      "context": "Gõ nhanh thay 'ph' bằng 'f'. Áp dụng cho các từ tiếng Việt bắt đầu bằng 'f' theo sau là nguyên âm.",
+      "notes": "Regex (?i) không phân biệt hoa thường. $1 giữ lại phần nguyên âm theo sau 'f'.",
+      "examples": [
+        "fong -> phong",
+        "fai -> phải",
+        "xin fep -> xin phép",
+        "bon fan -> bổn phận"
+      ]
+    }
+  ],
+  "last_updated": "2025-04-24"
+}

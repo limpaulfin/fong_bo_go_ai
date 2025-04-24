@@ -12,7 +12,8 @@ class KeyboardHandler:
         self.last_space_time = 0
         self.space_count = 0
         self.last_backslash_time = 0
-        self.last_right_shift_time = 0
+        self.last_shift_time = 0
+        self.last_shift_key = None
         self.last_num_lock_time = 0
         self.trigger_source = None
         self.is_lenovo = False
@@ -30,21 +31,22 @@ class KeyboardHandler:
         Xử lý sự kiện khi nhấn phím
         """
         try:
-            # Hoàn nguyên: Chỉ xử lý Double Right Shift
-            if key == Key.shift_r:
+            # Thay đổi: Xử lý Double Left/Right Shift
+            if key == Key.shift_r or key == Key.shift_l:
                 current_time = time.time()
-                time_diff = current_time - self.last_right_shift_time
+                time_diff = current_time - self.last_shift_time
 
-                if time_diff < DOUBLE_SPACE_THRESHOLD:
+                # Chỉ trigger nếu nhấn đúp *cùng* phím Shift
+                if time_diff < DOUBLE_SPACE_THRESHOLD and self.last_shift_key == key:
                     self.should_scan = True
-                    self.trigger_source = 'double_right_shift'
-                    self.last_right_shift_time = 0
-                    self.last_backslash_time = 0
-                    self.last_num_lock_time = 0
+                    self.trigger_source = 'double_shift' # Đổi tên trigger source
+                    # Reset để tránh trigger liên tục nếu giữ phím
+                    self.last_shift_time = 0
+                    self.last_shift_key = None
                 else:
-                    self.last_right_shift_time = current_time
-                    self.last_backslash_time = 0
-                    self.last_num_lock_time = 0
+                    # Ghi nhận phím shift và thời gian cho lần nhấn tiếp theo
+                    self.last_shift_time = current_time
+                    self.last_shift_key = key
 
             elif isinstance(key, keyboard.KeyCode) and key.char == '\\':
                 current_time = time.time()
@@ -55,40 +57,24 @@ class KeyboardHandler:
                     self.trigger_source = 'double_backslash'
 
                 self.last_backslash_time = current_time
-                self.last_right_shift_time = 0
-                self.last_num_lock_time = 0
+                # Cần reset last_shift_key nếu nhấn phím khác shift
+                self.last_shift_key = None
 
             elif key == Key.scroll_lock:
                 self.should_scan = True
                 self.trigger_source = 'scroll_lock'
-                self.last_right_shift_time = 0
-                self.last_backslash_time = 0
-                self.last_num_lock_time = 0
-
-            elif key == Key.num_lock:
-                current_time = time.time()
-                time_diff = current_time - self.last_num_lock_time
-
-                if time_diff < DOUBLE_SPACE_THRESHOLD:
-                    self.should_scan = True
-                    self.trigger_source = 'double_num_lock'
-                    self.last_num_lock_time = 0
-                else:
-                    self.last_num_lock_time = current_time
-                self.last_right_shift_time = 0
-                self.last_backslash_time = 0
+                # Cần reset last_shift_key nếu nhấn phím khác shift
+                self.last_shift_key = None
 
             else:
-                self.last_right_shift_time = 0
-                self.last_backslash_time = 0
-                self.last_num_lock_time = 0
+                # Reset last_shift_key nếu nhấn phím khác shift
+                self.last_shift_key = None
                 if self.space_count > 0:
                     self.space_count = 0
 
         except AttributeError:
-            self.last_right_shift_time = 0
-            self.last_backslash_time = 0
-            self.last_num_lock_time = 0
+            # Reset last_shift_key nếu có lỗi
+            self.last_shift_key = None
             pass
         except Exception as e:
             print(f"Lỗi khi xử lý phím: {str(e)}")
