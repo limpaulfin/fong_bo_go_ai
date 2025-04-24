@@ -76,14 +76,16 @@
 
 2. Các phím tắt chính: / Main shortcuts:
 
-    **Kích hoạt sửa lỗi thông minh**:
+    **Chế độ cơ bản (không có RAG context)**: / Basic mode (without RAG context):
 
-    - Nhấn đúp phím `Shift` Phải / Double press `Right Shift` key
-    - Nhấn đúp phím `Backslash` (`\\`) / Double press `Backslash` key (`\\`)
-    - Nhấn đúp phím `Num Lock` / Double press `Num Lock` key
-    - Nhấn phím `Scroll Lock` / Press `Scroll Lock` key
+    - Nhấn đúp phím Space (cách) / Double press the Space key
+    - Nhấn phím Scroll Lock (không chọn text) / Press Scroll Lock (without text selection)
 
-    _Lưu ý: Việc có sử dụng RAG context hay không phụ thuộc vào việc bạn có chọn (highlight) đoạn văn bản nào trước khi nhấn phím tắt hay không. Nếu có chọn văn bản, RAG context (nếu có) sẽ được sử dụng._
+    **Chế độ nâng cao (có RAG context)**: / Advanced mode (with RAG context):
+
+    - Nhấn đúp phím Backslash (\\) / Double press the Backslash key
+    - Nhấn đúp phím Shift phải / Double press the Right Shift key
+    - Chọn văn bản + Nhấn Scroll Lock / Select text + Press Scroll Lock
 
 3. Tùy chỉnh ngữ cảnh: / Customize context:
 

@@ -56,31 +56,30 @@ class SystemTrayIcon:
         # Tạo menu với mô tả cách sử dụng
         menu = pystray.Menu(
             pystray.MenuItem(
-                "Cách kích hoạt Auto-correct (assisted by AI):",
+                "Cách sử dụng Bộ Gõ AI:",
                 None,
                 enabled=False
             ),
             pystray.MenuItem(
-                "- Double Right Shift",
+                "- Double Right Shift: Auto-correct (có RAG) - mọi thiết bị",
                 None,
                 enabled=False
             ),
             pystray.MenuItem(
-                "- Double Backslash (\\)",
+                "- Chọn văn bản + Double Right Shift: Auto-correct (có RAG)",
                 None,
                 enabled=False
             ),
             pystray.MenuItem(
-                "- Double Num Lock",
+                "- Double Backslash (\\): Auto-correct (có RAG)",
                 None,
                 enabled=False
             ),
             pystray.MenuItem(
-                "- Scroll Lock",
+                "- Chọn văn bản + Scroll Lock: Auto-correct (có RAG)",
                 None,
                 enabled=False
             ),
-            pystray.MenuItem("--- (Chức năng) ---", None, enabled=False),
             pystray.MenuItem("Open README.md", open_readme),
             pystray.MenuItem("Open Location", open_source_location),
             pystray.MenuItem("Open RAG folder (context)", open_rag_folder),
@@ -91,7 +90,7 @@ class SystemTrayIcon:
         return pystray.Icon(
             "bo_go_ai",
             image,
-            f"{APP_NAME} ({MODEL_NAME}) - Kích hoạt: RShift×2, \\×2, NumLk×2, ScrLk",
+            f"{APP_NAME} ({MODEL_NAME})",
             menu
         )
 

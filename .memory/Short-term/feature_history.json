@@ -110,7 +110,78 @@
       ],
       "testing_notes": "Tài liệu đã được cập nhật với thông tin mới nhất từ trí nhớ dự án",
       "completion_date": "2025-04-19"
+    },
+    {
+      "name": "RAG Context Rules Addition",
+      "implementation_stages": [
+        {
+          "stage": "Rule Creation",
+          "description": "Thêm file rag_context/vietnamese_shorthand_rules.json với các quy tắc sửa lỗi gõ tắt tiếng Việt (p an r ne, r -> rồi, p/fong -> Phong, f -> ph).",
+          "date": "2025-04-24",
+          "files": ["rag_context/vietnamese_shorthand_rules.json"]
+        },
+        {
+          "stage": "Manifest Update",
+          "description": "Cập nhật .memory/manifest.json để ghi nhận file quy tắc mới.",
+          "date": "2025-04-24",
+          "files": [".memory/manifest.json"]
+        }
+      ],
+      "testing_notes": "Các quy tắc mới cần được kiểm tra trong quá trình auto-correct thực tế.",
+      "completion_date": "2025-04-24"
+    },
+    {
+      "name": "Keyboard Trigger Enhancement",
+      "implementation_stages": [
+        {
+          "stage": "Allow Double Left/Right Shift",
+          "description": "Cập nhật keyboard_handler.py để chấp nhận nhấn đúp phím Left Shift hoặc Right Shift (thay vì chỉ Right Shift) để kích hoạt auto-correct.",
+          "date": "2025-04-24",
+          "files": ["src/core/keyboard_handler.py"]
+        }
+      ],
+      "testing_notes": "Đã thay đổi logic để kiểm tra key == Key.shift_l or key == Key.shift_r, sử dụng last_shift_time và last_shift_key để đảm bảo nhấn đúp cùng phím shift. Cần kiểm tra thực tế.",
+      "completion_date": "2025-04-24"
+    },
+    {
+      "name": "Keyboard Trigger Addition (Num Lock)",
+      "implementation_stages": [
+        {
+          "stage": "Add Double Num Lock Trigger",
+          "description": "Cập nhật keyboard_handler.py để thêm Double Num Lock làm trigger mới, bên cạnh Double Shift và Double Backslash.",
+          "date": "2025-04-24",
+          "files": ["src/core/keyboard_handler.py"]
+        }
+      ],
+      "testing_notes": "Đã thêm logic kiểm tra Key.num_lock và last_num_lock_time. Các trigger khác được reset phù hợp để tránh nhiễu. Cần kiểm tra thực tế.",
+      "completion_date": "2025-04-24"
+    },
+    {
+      "name": "Documentation and UI Update",
+      "implementation_stages": [
+        {
+          "stage": "Update Triggers Info",
+          "description": "Cập nhật README.md, hover text và menu của tray icon để liệt kê đầy đủ và chính xác các trigger bàn phím mới (Double Shift, Double Num Lock, loại bỏ '(có RAG)').",
+          "date": "2025-04-24",
+          "files": ["README.md", "src/ui/tray_icon.py"]
+        }
+      ],
+      "testing_notes": "Đã cập nhật tài liệu hướng dẫn, hover text và cấu trúc menu item trong UI.",
+      "completion_date": "2025-04-24"
+    },
+    {
+      "name": "Keyboard Trigger Reversion (Right Shift Only)",
+      "implementation_stages": [
+        {
+          "stage": "Revert Shift Logic & Update Docs",
+          "description": "Hoàn nguyên logic keyboard_handler.py để chỉ chấp nhận Double Right Shift. Xác nhận Scroll Lock vẫn hoạt động. Cập nhật README.md và tray_icon.py (menu, hover text) cho phù hợp.",
+          "date": "2025-04-24",
+          "files": ["src/core/keyboard_handler.py", "src/ui/tray_icon.py", "README.md"]
+        }
+      ],
+      "testing_notes": "Đã đưa logic về chỉ dùng Right Shift. Scroll Lock được xác nhận vẫn hoạt động. Tài liệu và UI đã cập nhật.",
+      "completion_date": "2025-04-24"
     }
   ],
-  "last_updated": "2025-04-19"
+  "last_updated": "2025-04-24"
 }
