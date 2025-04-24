@@ -78,5 +78,15 @@
       "diagram": "KeyboardHandler -> run_main -> ClipboardManager -> debug_logger -> api_handler -> debug_logger -> ClipboardManager"
     }
   ],
+  "rag_context_rules": {
+    "description": "Quy trình quản lý các quy tắc autocorrect trong thư mục rag_context",
+    "location": "./rag_context/",
+    "format": "JSON files",
+    "crud_process": [
+      "Read: Các file JSON trong rag_context được đọc bởi ContextHandler.",
+      "Create/Update: Khi thêm hoặc sửa quy tắc, cần quét (ví dụ: dùng grep) thư mục rag_context để đảm bảo không trùng lặp (DRY).",
+      "Delete: Xóa file JSON nếu quy tắc không còn phù hợp."
+    ]
+  },
   "last_updated": "2025-04-19"
 }

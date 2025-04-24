@@ -1,0 +1,24 @@
+{
+  "short_term": [
+    "Short-term/activeContext.json",
+    "Short-term/progress.json",
+    "Short-term/feature_history.json",
+    "Short-term/short-term-memory.json"
+  ],
+  "long_term": [
+    "Long-term/projectbrief.json",
+    "Long-term/productContext.json",
+    "Long-term/systemPatterns.json",
+    "Long-term/techContext.json",
+    "Long-term/index.json",
+    "Long-term/project_structure.json",
+    "Long-term/architecture.json",
+    "Long-term/api_usage.json",
+    "Long-term/tech_tips.json",
+    "Long-term/user_preferences.json",
+    "Long-term/implementation_details.json"
+  ],
+  "rag_context": [
+    "rag_context/vietnamese_shorthand_rules.json"
+  ]
+}
