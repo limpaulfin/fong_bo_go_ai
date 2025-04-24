@@ -30,6 +30,18 @@
         "xin fep -> xin phép",
         "bon fan -> bổn phận"
       ]
+    },
+    {
+      "input_pattern": "(?i)\\bnay h\\b",
+      "output": "nãy giờ",
+      "context": "Đối thoại thông thường, 'h' thường là viết tắt của 'giờ'.",
+      "notes": "Sử dụng (?i) để không phân biệt hoa thường và \\b để khớp từ đơn lẻ."
+    },
+    {
+      "input_pattern": "(?i)\\ba v e(m)?\\b",
+      "output": "anh với em",
+      "context": "Đối thoại thân mật, 'v' thường là viết tắt của 'với', 'a' là 'anh', 'e' là 'em'.",
+      "notes": "Regex (?i) không phân biệt hoa thường, \\b khớp từ đơn lẻ, (m)? cho phép có hoặc không có 'm' ở cuối."
     }
   ],
   "last_updated": "2025-04-24"

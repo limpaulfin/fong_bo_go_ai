@@ -1,0 +1,21 @@
+{
+    "description": "Các quy tắc tự động sửa lỗi chính tả",
+    "last_updated": "2025-04-24",
+    "rules": [
+        {
+            "pattern": "nay h",
+            "replacement": "nãy giờ",
+            "description": "Chữ 'h' thường là 'giờ'"
+        },
+        {
+            "pattern": "a v e",
+            "replacement": "anh với em",
+            "description": "Chữ 'v' thường là 'với'"
+        },
+        {
+            "pattern": "a v em",
+            "replacement": "anh với em",
+            "description": "Chữ 'v' thường là 'với'"
+        }
+    ]
+}
