@@ -42,6 +42,39 @@
       "output": "anh với em",
       "context": "Đối thoại thân mật, 'v' thường là viết tắt của 'với', 'a' là 'anh', 'e' là 'em'.",
       "notes": "Regex (?i) không phân biệt hoa thường, \\b khớp từ đơn lẻ, (m)? cho phép có hoặc không có 'm' ở cuối."
+    },
+    {
+      "input_pattern": "(?i)(e|em|anh|chị|cty|công ty)\\s+ck|ck\\s+(cho|dùm|giùm)",
+      "output": "chuyển khoản",
+      "context": "Ngữ cảnh giao dịch tài chính. Thường đi kèm với các từ như 'em', 'anh', 'chị', 'cty', 'cho', 'dùm', 'giùm'.",
+      "notes": "Regex phức tạp hơn để cố gắng xác định ngữ cảnh. Cần kiểm tra kỹ lưỡng. Ưu tiên quy tắc này khi có dấu hiệu giao dịch.",
+      "examples": [
+        "bua sau e ck chung luon -> bữa sau em chuyển khoản chung luôn",
+        "da e ck c nha -> dạ em chuyển khoản chị nha",
+        "ck cho em -> chuyển khoản cho em"
+      ]
+    },
+    {
+      "input_pattern": "(?i)(ck\\s+(của|anh|chị|em|mày|ổng|bả))|(ck\\s+nay|ck\\s+hôm\\s+nay)",
+      "output": "chồng",
+      "context": "Ngữ cảnh nói về người (chồng). Thường đi kèm các từ sở hữu ('của', 'anh', 'chị'...) hoặc thời gian ('nay', 'hôm nay').",
+      "notes": "Regex cố gắng xác định ngữ cảnh sở hữu hoặc hoạt động của 'chồng'. Cần kiểm tra kỹ lưỡng.",
+      "examples": [
+        "ck c hôm nay về sớm -> chồng chị hôm nay về sớm",
+        "bua h ck m có nói gì m k? -> bữa giờ chồng mày có nói gì mày không?"
+      ]
+    },
+    {
+      "input_pattern": "(?i)(?<!nay )\\bh\\b",
+      "output": "giờ",
+      "context": "Thường dùng trong đối thoại thông thường, thay cho 'giờ'. Loại trừ trường hợp 'nay h' đã có quy tắc riêng.",
+      "notes": "Regex (?i) không phân biệt hoa thường, \\b khớp từ đơn lẻ. `(?<!nay )` là negative lookbehind để tránh khớp 'nay h'. Lưu ý 'h' còn có thể là viết tắt của 'học'."
+    },
+    {
+      "input_pattern": "(?i)\\bk\\b",
+      "output": "không",
+      "context": "Phổ biến trong văn nói, tin nhắn thay cho 'không'.",
+      "notes": "Regex (?i) không phân biệt hoa thường, \\b khớp từ đơn lẻ. Cần lưu ý 'k' cũng có thể là ký tự thường hoặc viết tắt khác (vd: OK, kg)."
     }
   ],
   "last_updated": "2025-04-24"
