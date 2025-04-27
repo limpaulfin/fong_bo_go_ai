@@ -32,6 +32,12 @@
       "description": "my_prompt.md đã được cập nhật để đảm bảo AI giữ nguyên cấu trúc xuống dòng khi auto-correct văn bản, đặc biệt quan trọng với danh sách, code, đoạn thơ.",
       "details": "Yêu cầu này được thêm vào cả phần Task và Note để nhấn mạnh tầm quan trọng.",
       "tags": ["prompt", "newline", "formatting"]
+    },
+    {
+      "title": "Quy trình Git Sync/Push/Backup",
+      "description": "Khi người dùng yêu cầu 'Push lên Git', 'Sync lên Git', 'Backup lên Git' hoặc các lệnh tương tự, luôn thực hiện theo trình tự: `git add .` (để thêm tất cả thay đổi), sau đó `git commit -m '{message}'` (với message phù hợp), và cuối cùng `git push origin {branch}`.",
+      "details": "Luôn sử dụng `git add .` thay vì chỉ thêm các file cụ thể đã chỉnh sửa để đảm bảo tất cả thay đổi trong thư mục làm việc đều được đưa vào commit.",
+      "tags": ["git", "workflow", "user preference"]
     }
   ],
   "performance_notes": [
@@ -52,5 +58,5 @@
       "completed": "2025-04-19"
     }
   ],
-  "last_updated": "2025-04-19"
+  "last_updated": "2025-04-24"
 }

@@ -71,15 +71,6 @@
       "notes": "Regex (?i) không phân biệt hoa thường, \\b khớp từ đơn lẻ. `(?<!nay )` là negative lookbehind để tránh khớp 'nay h'. Lưu ý 'h' còn có thể là viết tắt của 'học'."
     },
     {
-      "input_pattern": "(?i)\\b(hong|hông)\\b",
-      "output": "hông",
-      "context": "Dạng nghi vấn thân mật, giữ nguyên thay vì sửa thành 'không'.",
-      "notes": "Regex (?i) không phân biệt hoa thường, \\b khớp từ đơn lẻ. Ưu tiên giữ lại 'hông' trong câu hỏi.",
-      "examples": [
-          "e co thich a hong? -> em có thích anh hông?"
-      ]
-    },
-    {
       "input_pattern": "(?i)\\bk\\b",
       "output": "không",
       "context": "Phổ biến trong văn nói, tin nhắn thay cho 'không'.",
