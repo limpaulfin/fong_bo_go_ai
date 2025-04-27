@@ -1,0 +1,39 @@
+{
+  "description": "Quy định về hành vi của hệ thống autocorrect, bao gồm các trường hợp loại trừ.",
+  "exclusions": [
+    {
+      "context": "File Paths and Filenames",
+      "reason": "Đường dẫn và tên file phải được giữ nguyên tuyệt đối (literal strings) để tránh lỗi hệ thống và đảm bảo tính chính xác khi dùng trong code hoặc script. Không áp dụng bất kỳ quy tắc sửa lỗi, thêm dấu, hay thay đổi ký tự nào.",
+      "identification_patterns": [
+        "Contains typical path separators: / or \\",
+        "Ends with a common file extension (e.g., .txt, .docx, .py, .js, .md)",
+        "Matches common path structures (e.g., C:\\Users\\... , /home/user/...)"
+      ],
+      "action": "SKIP_ALL_CORRECTIONS",
+      "examples": [
+        "C:\\Users\\HP\\OneDrive\\project-development\\python_bo_go_ai\\rag_context\\vietnamese_shorthand_rules.json",
+        "/home/user/documents/report_final.docx",
+        "../src/utils/helpers.js",
+        "file_name_with_no_accent.txt",
+        "Tên file có dấu.pdf"
+      ]
+    },
+    {
+      "context": "Code Snippets / Literals",
+      "reason": "Các đoạn mã nguồn hoặc chuỗi ký tự cố định (literals) trong code không được thay đổi để tránh lỗi cú pháp hoặc logic.",
+      "identification_patterns": [
+        "Enclosed in backticks (` `)",
+        "Identified as part of a code block",
+        "Contains programming keywords or syntax"
+      ],
+      "action": "SKIP_ALL_CORRECTIONS",
+      "examples": [
+        "print('chuoi ky tu nay k nen sua')",
+        "`const greeting = \"Hello, world!\";`",
+        "if (err) return cb(err);",
+        "SELECT * FROM users WHERE name = 'Nguyen Van A';"
+      ]
+    }
+  ],
+  "last_updated": "2025-04-24"
+}

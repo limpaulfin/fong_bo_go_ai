@@ -16,7 +16,8 @@
     "Long-term/api_usage.json",
     "Long-term/tech_tips.json",
     "Long-term/user_preferences.json",
-    "Long-term/implementation_details.json"
+    "Long-term/implementation_details.json",
+    "Long-term/auto_correct_rules.json"
   ],
   "rag_context": [
     "rag_context/vietnamese_shorthand_rules.json"
