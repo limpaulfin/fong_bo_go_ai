@@ -38,6 +38,51 @@
       "description": "Khi người dùng yêu cầu 'Push lên Git', 'Sync lên Git', 'Backup lên Git' hoặc các lệnh tương tự, luôn thực hiện theo trình tự: `git add .` (để thêm tất cả thay đổi), sau đó `git commit -m '{message}'` (với message phù hợp), và cuối cùng `git push origin {branch}`.",
       "details": "Luôn sử dụng `git add .` thay vì chỉ thêm các file cụ thể đã chỉnh sửa để đảm bảo tất cả thay đổi trong thư mục làm việc đều được đưa vào commit.",
       "tags": ["git", "workflow", "user preference"]
+    },
+    {
+      "title": "KISS (Keep It Simple, Stupid)",
+      "description": "Ưu tiên sự đơn giản, tránh phức tạp hóa quá mức (over-engineering) trong thiết kế và code.",
+      "tags": ["principle", "design", "simplicity"]
+    },
+    {
+      "title": "Agile (Nguyên tắc phát triển linh hoạt)",
+      "description": "Phương pháp phát triển lặp lại, tăng dần, tập trung vào sự hợp tác, phản hồi nhanh và khả năng thích ứng với thay đổi.",
+      "tags": ["principle", "methodology", "workflow"]
+    },
+    {
+      "title": "YAGNI (You Ain't Gonna Need It)",
+      "description": "Chỉ triển khai những chức năng thực sự cần thiết tại thời điểm hiện tại, tránh thêm các tính năng 'có thể cần trong tương lai'.",
+      "tags": ["principle", "simplicity", "feature scope"]
+    },
+    {
+      "title": "DRY (Don't Repeat Yourself)",
+      "description": "Tránh lặp lại thông tin, logic hoặc code ở nhiều nơi. Thay vào đó, hãy trừu tượng hóa và tái sử dụng.",
+      "tags": ["principle", "code quality", "maintainability"]
+    },
+    {
+      "title": "SOLID Principles",
+      "description": "Năm nguyên tắc thiết kế hướng đối tượng giúp code dễ hiểu, bảo trì và mở rộng: Single responsibility, Open/closed, Liskov substitution, Interface segregation, Dependency inversion.",
+      "tags": ["principle", "oop", "design patterns", "maintainability"]
+    },
+    {
+      "title": "Yoda Conditions",
+      "description": "Viết điều kiện so sánh với hằng số/giá trị cố định ở bên trái (ví dụ: `null === $variable`) để tránh lỗi gán nhầm (`=`).",
+      "tags": ["principle", "coding style", "bug prevention"]
+    },
+    {
+      "title": "Pareto Principle (80/20 Rule)",
+      "description": "Tập trung vào 20% yếu tố quan trọng nhất (nguyên nhân, công việc, tính năng) thường mang lại 80% kết quả.",
+      "tags": ["principle", "prioritization", "efficiency"]
+    },
+    {
+      "title": "No Hallucination (AI Principle)",
+      "description": "Nguyên tắc yêu cầu AI chỉ cung cấp thông tin dựa trên dữ liệu đầu vào và kiến thức đã học, không tự 'sáng tạo' hay 'suy diễn' ra thông tin không có cơ sở.",
+      "tags": ["principle", "ai", "reliability"]
+    },
+    {
+      "title": "CRUD Operations",
+      "description": "Bốn thao tác cơ bản để quản lý dữ liệu trong lưu trữ bền vững: Create (Tạo mới), Read (Đọc/Truy vấn), Update (Cập nhật), và Delete (Xóa).",
+      "tags": ["principle", "data management", "database", "api"]
     }
   ],
   "performance_notes": [

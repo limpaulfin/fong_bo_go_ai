@@ -132,12 +132,6 @@
       "output": "No Hallucination (Không tự suy diễn)",
       "context": "Nguyên tắc làm việc của AI.",
       "notes": "Chỉ cung cấp thông tin dựa trên dữ liệu đã biết, không tự bịa đặt."
-    },
-    {
-      "input_pattern": "(?i)\\bCRUD\\b",
-      "output": "CRUD (Create, Read, Update, Delete)",
-      "context": "Các thao tác cơ bản với dữ liệu.",
-      "notes": "Thường dùng trong quản lý cơ sở dữ liệu và API."
     }
   ],
   "last_updated": "2025-04-24"
