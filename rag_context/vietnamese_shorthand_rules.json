@@ -138,7 +138,16 @@
       "output": "CRUD (Create, Read, Update, Delete)",
       "context": "Các thao tác cơ bản với dữ liệu.",
       "notes": "Thường dùng trong quản lý cơ sở dữ liệu và API."
+    },
+    {
+      "input_pattern": "(^|\\n)([ \\t]*)([^-\\s\\n][^\\n]*)",
+      "output": "$1$2- $3",
+      "context": "Định dạng danh sách liệt kê: tự động thêm dấu '-' vào đầu dòng cho mục liệt kê bị thiếu, nếu dòng trước đã có dấu '-'.",
+      "notes": "Chỉ nên áp dụng khi dòng trước là mục liệt kê hợp lệ. Không lạm dụng pattern phức tạp trong JSON, chỉ dùng pattern đơn giản, dễ bảo trì.",
+      "examples": [
+        "nha minh co 3 nguoi\\n- ba\\n- me\\nba ngoai\\nem yeu me e nhat =>\\nNhà mình có 3 người:\\n- ba\\n- mẹ\\n- bà ngoại\\nEm yêu mẹ em nhất"
+      ]
     }
   ],
-  "last_updated": "2025-04-24"
+  "last_updated": "2025-04-27"
 }
