@@ -15,12 +15,14 @@
       "rag_references": [
         "rag_context/dialect_rules.md",
         "rag_context/dialect_rules.json"
-      ]
+      ],
+      "pronoun_preference": "Avoid suggesting or correcting to informal pronouns like 'mày', 'tao' as they are rarely used by the user."
     },
     "behavior_preferences": {
       "git": "Manual commit and push preferred",
       "backups": "Create backups before editing files with timestamps",
-      "logging": "Prefer detailed logging for debugging"
+      "logging": "Prefer detailed logging for debugging",
+      "capitalization_note": "Prefer capitalizing proper nouns (names, places) when possible, although automated rule is currently infeasible."
     },
     "feature_preferences": {
       "shortcuts": {
@@ -54,9 +56,5 @@
       "package_structure": ["core", "text_processor", "ui", "utils", "config"]
     }
   },
-  "last_updated": "2025-04-20"
-}
-
-  },
-  "last_updated": "2025-04-20"
+  "last_updated": "2025-04-28"
 }

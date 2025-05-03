@@ -1,0 +1,27 @@
+{
+  "description": "Quy tắc Telex tiếng Việt tổng quát (chuẩn quốc tế, tham khảo Wikipedia, Microsoft, Keyman)",
+  "rules": [
+    { "pattern": "(?i)aa", "replace": "â", "type": "letter" },
+    { "pattern": "(?i)aw", "replace": "ă", "type": "letter" },
+    { "pattern": "(?i)dd", "replace": "đ", "type": "letter" },
+    { "pattern": "(?i)ee", "replace": "ê", "type": "letter" },
+    { "pattern": "(?i)oo", "replace": "ô", "type": "letter" },
+    { "pattern": "(?i)ow", "replace": "ơ", "type": "letter" },
+    { "pattern": "(?i)uw", "replace": "ư", "type": "letter" },
+
+    { "pattern": "(?i)([aăâeêioôơuưy])s", "replace": "$1́", "type": "tone", "note": "dấu sắc" },
+    { "pattern": "(?i)([aăâeêioôơuưy])f", "replace": "$1̀", "type": "tone", "note": "dấu huyền" },
+    { "pattern": "(?i)([aăâeêioôơuưy])r", "replace": "$1̉", "type": "tone", "note": "dấu hỏi" },
+    { "pattern": "(?i)([aăâeêioôơuưy])x", "replace": "$1̃", "type": "tone", "note": "dấu ngã" },
+    { "pattern": "(?i)([aăâeêioôơuưy])j", "replace": "$1̣", "type": "tone", "note": "dấu nặng" },
+
+    { "pattern": "(?i)([aăâeêioôơuưy])z", "replace": "$1", "type": "remove_tone", "note": "huỷ dấu" }
+  ],
+  "examples": [
+    { "input": "ngoafi trowfi deem nay nhieefu sao quas", "output": "ngoài trời đêm nay nhiều sao quá" },
+    { "input": "con dduowfng nayf ddi veef ddaau", "output": "con đường này đi về đâu" },
+    { "input": "hom nay troi ddepj lawms", "output": "hôm nay trời đẹp lắm" },
+    { "input": "aan comw rangw vowis truwngs rans", "output": "ăn cơm rang với trứng rán" }
+  ],
+  "last_updated": "2025-05-02"
+}
