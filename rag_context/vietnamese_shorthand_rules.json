@@ -44,24 +44,25 @@
       "notes": "Regex (?i) không phân biệt hoa thường, \\b khớp từ đơn lẻ, (m)? cho phép có hoặc không có 'm' ở cuối."
     },
     {
-      "input_pattern": "(?i)(e|em|anh|chị|cty|công ty)\\s+ck|ck\\s+(cho|dùm|giùm)",
+      "input_pattern": "(?i)(e|em|anh|chi|chị|cty|cong ty|công ty)\\s+ck|ck\\s+(cho|dum|dùm|gium|giùm)",
       "output": "chuyển khoản",
       "context": "Ngữ cảnh giao dịch tài chính. Thường đi kèm với các từ như 'em', 'anh', 'chị', 'cty', 'cho', 'dùm', 'giùm'.",
-      "notes": "Regex phức tạp hơn để cố gắng xác định ngữ cảnh. Cần kiểm tra kỹ lưỡng. Ưu tiên quy tắc này khi có dấu hiệu giao dịch.",
+      "notes": "Đã cập nhật để nhận dạng cả từ không dấu. Ưu tiên quy tắc này khi có dấu hiệu giao dịch.",
       "examples": [
         "bua sau e ck chung luon -> bữa sau em chuyển khoản chung luôn",
         "da e ck c nha -> dạ em chuyển khoản chị nha",
-        "ck cho em -> chuyển khoản cho em"
+        "ck cho em -> chuyển khoản cho em",
+        "anh ck dum em -> anh chuyển khoản dùm em"
       ]
     },
     {
-      "input_pattern": "(?i)(ck\\s+(của|anh|chị|em|mày|ổng|bả))|(ck\\s+nay|ck\\s+hôm\\s+nay)",
+      "input_pattern": "(?i)(ck\\s+(cua|của|anh|chi|chị|em|ong|ổng|ba|bả))|(ck\\s+nay|ck\\s+hom nay|ck\\s+hôm\\s+nay)",
       "output": "chồng",
       "context": "Ngữ cảnh nói về người (chồng). Thường đi kèm các từ sở hữu ('của', 'anh', 'chị'...) hoặc thời gian ('nay', 'hôm nay').",
-      "notes": "Regex cố gắng xác định ngữ cảnh sở hữu hoặc hoạt động của 'chồng'. Cần kiểm tra kỹ lưỡng.",
+      "notes": "Đã cập nhật để nhận dạng cả từ không dấu. Đã loại bỏ 'mày' khỏi pattern nhận diện theo sở thích người dùng.",
       "examples": [
         "ck c hôm nay về sớm -> chồng chị hôm nay về sớm",
-        "bua h ck m có nói gì m k? -> bữa giờ chồng mày có nói gì mày không?"
+        "ck cua chi ay -> chồng của chị ấy"
       ]
     },
     {
@@ -84,7 +85,226 @@
       "output": "không",
       "context": "Phổ biến trong văn nói, tin nhắn thay cho 'không'.",
       "notes": "Regex (?i) không phân biệt hoa thường, \\b khớp từ đơn lẻ. Cần lưu ý 'k' cũng có thể là ký tự thường hoặc viết tắt khác (vd: OK, kg)."
+    },
+    {
+      "input_pattern": "(?i)\\bKISS\\b",
+      "output": "KISS (Keep It Simple, Stupid)",
+      "context": "Nguyên tắc lập trình.",
+      "notes": "Ưu tiên sự đơn giản, tránh phức tạp hóa không cần thiết."
+    },
+    {
+      "input_pattern": "(?i)\\bAgile\\b",
+      "output": "Agile (Nguyên tắc phát triển linh hoạt)",
+      "context": "Phương pháp phát triển phần mềm.",
+      "notes": "Tập trung vào thay đổi nhỏ, lặp lại, phản hồi nhanh."
+    },
+    {
+      "input_pattern": "(?i)\\bYAGNI\\b",
+      "output": "YAGNI (You Ain't Gonna Need It)",
+      "context": "Nguyên tắc lập trình.",
+      "notes": "Tránh thêm chức năng không thực sự cần thiết tại thời điểm hiện tại."
+    },
+    {
+      "input_pattern": "(?i)\\bDRY\\b",
+      "output": "DRY (Don't Repeat Yourself)",
+      "context": "Nguyên tắc lập trình.",
+      "notes": "Tránh lặp lại code, logic hoặc thông tin."
+    },
+    {
+      "input_pattern": "(?i)\\bSOLID\\b",
+      "output": "SOLID (Single responsibility, Open/closed, Liskov substitution, Interface segregation, Dependency inversion)",
+      "context": "Nhóm nguyên tắc thiết kế hướng đối tượng.",
+      "notes": "Giúp code dễ bảo trì, mở rộng và hiểu."
+    },
+    {
+      "input_pattern": "(?i)\\bYoda\\s+conditions\\b",
+      "output": "Yoda conditions (Điều kiện Yoda)",
+      "context": "Phong cách viết code.",
+      "notes": "Đặt hằng số/giá trị cố định bên trái toán tử so sánh (ví dụ: 'value' === $variable) để tránh lỗi gán nhầm (= thay vì == hoặc ===)."
+    },
+    {
+      "input_pattern": "(?i)\\bPareto\\b",
+      "output": "Pareto (Nguyên tắc 80/20)",
+      "context": "Nguyên tắc hiệu suất.",
+      "notes": "Tập trung vào 20% nỗ lực mang lại 80% kết quả."
+    },
+    {
+      "input_pattern": "(?i)\\bNo\\s+Hallucination\\b",
+      "output": "No Hallucination (Không tự suy diễn)",
+      "context": "Nguyên tắc làm việc của AI.",
+      "notes": "Chỉ cung cấp thông tin dựa trên dữ liệu đã biết, không tự bịa đặt."
+    },
+    {
+      "input_pattern": "(?i)\\bCRUD\\b",
+      "output": "CRUD (Create, Read, Update, Delete)",
+      "context": "Các thao tác cơ bản với dữ liệu.",
+      "notes": "Thường dùng trong quản lý cơ sở dữ liệu và API."
+    },
+    {
+      "input_pattern": "(?i)\\b(la|lạ)\\s+(ghe|ghê)\\b",
+      "output": "$0",
+      "context": "Phương ngữ miền Nam, nhấn mạnh.",
+      "notes": "Giữ nguyên cụm từ 'lạ ghê'/'la ghe' để tôn trọng phương ngữ tự nhiên của người dùng.",
+      "examples": [
+        "Chuyện này lạ ghê",
+        "Chuyen nay la ghe"
+      ]
+    },
+    {
+      "input_pattern": "(?i)\\b(ki|kì)\\s+(ghe|ghê)\\b",
+      "output": "$0",
+      "context": "Phương ngữ miền Nam, nhấn mạnh.",
+      "notes": "Giữ nguyên cụm từ 'kì ghê'/'ki ghe' để tôn trọng phương ngữ tự nhiên của người dùng.",
+      "examples": [
+        "Anh ta làm vậy kì ghê",
+        "Anh ta lam vay ki ghe"
+      ]
+    },
+    {
+      "input_pattern": "(?i)\\b(thay|thấy)\\s+(ghe|ghê)\\b",
+      "output": "$0",
+      "context": "Phương ngữ miền Nam, nhấn mạnh/cảm thán.",
+      "notes": "KHÔNG TỰ ĐỘNG SỬA. Cụm từ 'thấy ghê'/'thay ghe' đa nghĩa (thấy sợ/kinh, thấy lạ/kì, hoặc nhấn mạnh chung). Cần giữ nguyên để người dùng xác định lại theo ngữ cảnh.",
+      "examples": [
+        "Nhìn con rắn đó thấy ghê.",
+        "Anh ta chạy nhanh thấy ghê.",
+        "Nhin con ran do thay ghe."
+      ]
+    },
+    {
+      "input_pattern": "(?i)\\bfai\\b",
+      "output": "phải",
+      "context": "Gõ tắt không dấu cho 'phải'.",
+      "notes": "Ưu tiên hơn quy tắc f(...) tổng quát nếu khớp."
+    },
+    {
+      "input_pattern": "(?i)\\bfep\\b",
+      "output": "phép",
+      "context": "Gõ tắt không dấu cho 'phép'.",
+      "notes": "Ưu tiên hơn quy tắc f(...) tổng quát nếu khớp."
+    },
+    {
+      "input_pattern": "(?i)\\bfan\\b",
+      "output": "phận",
+      "context": "Gõ tắt không dấu cho 'phận'.",
+      "notes": "Ưu tiên hơn quy tắc f(...) tổng quát nếu khớp."
+    },
+    {
+      "input_pattern": "(?i)\\b(may|mày|tao)\\b",
+      "output": "$0",
+      "context": "Đại từ nhân xưng thân mật/không trang trọng.",
+      "notes": "KHÔNG TỰ ĐỘNG SỬA. Người dùng ít sử dụng các đại từ này. Giữ nguyên để người dùng xem xét hoặc sửa thành đại từ phù hợp hơn nếu cần.",
+      "examples": [
+        "Mày đi đâu đó?",
+        "Tao không biết."
+      ]
+    },
+    {
+      "input_pattern": "(?i)\\bhnay\\b",
+      "output": "hôm nay",
+      "context": "Viết tắt phổ biến cho 'hôm nay'.",
+      "notes": "Regex (?i) không phân biệt hoa thường, \\b khớp từ đơn lẻ."
+    },
+    {
+      "input_pattern": "(?i)\\ba\\s+nay\\b",
+      "output": "anh này",
+      "context": "Viết tắt 'a' cho 'anh' trong cụm 'anh này'.",
+      "notes": "Ưu tiên xử lý cụm từ cụ thể này.",
+      "examples": [
+        "a nay ki ghe => anh này kì ghê"
+      ]
+    },
+    {
+      "input_pattern": "(?i)\\ba\\s+(nho|nhớ)\\b",
+      "output": "anh nhớ",
+      "context": "Viết tắt 'a' cho 'anh' khi đi với động từ 'nhớ'.",
+      "notes": "Khá an toàn trong ngữ cảnh này.",
+      "examples": [
+        "a nho em => anh nhớ em",
+        "a nho ve que => anh nhớ về quê"
+      ]
+    },
+    {
+      "input_pattern": "(?i)\\ba\\s+di\\b",
+      "output": "anh đi",
+      "context": "Viết tắt 'a' cho 'anh' khi đi với động từ 'đi'.",
+      "notes": "Tương đối phổ biến nhưng cần lưu ý ngữ cảnh.",
+      "examples": [
+        "a di choi => anh đi chơi",
+        "a di lam => anh đi làm"
+      ]
+    },
+    {
+      "input_pattern": "(?i)\\bhqua\\b",
+      "output": "hôm qua",
+      "context": "Viết tắt cho 'hôm qua'."
+    },
+    {
+      "input_pattern": "(?i)\\bhkia\\b",
+      "output": "hôm kia",
+      "context": "Viết tắt cho 'hôm kia'."
+    },
+    {
+      "input_pattern": "(?i)\\bhbua\\b",
+      "output": "hôm bữa",
+      "context": "Viết tắt cho 'hôm bữa'."
+    },
+    {
+      "input_pattern": "(?i)\\bntn\\b",
+      "output": "như thế nào",
+      "context": "Viết tắt cho 'như thế nào'."
+    },
+    {
+      "input_pattern": "(?i)\\bbthuong\\b",
+      "output": "bình thường",
+      "context": "Viết tắt cho 'bình thường'."
+    },
+    {
+      "input_pattern": "(?i)\\bqdinh\\b",
+      "output": "quyết định",
+      "context": "Viết tắt cho 'quyết định'."
+    },
+    {
+      "input_pattern": "(?i)\\bsnghi\\b",
+      "output": "suy nghĩ",
+      "context": "Viết tắt cho 'suy nghĩ'."
+    },
+    {
+      "input_pattern": "(?i)\\bdc\\b",
+      "output": "được",
+      "context": "Viết tắt cho 'được'."
+    },
+    {
+      "input_pattern": "(?i)\\bko\\b",
+      "output": "không",
+      "context": "Viết tắt cho 'không' (ngoài 'k')."
+    },
+    {
+      "input_pattern": "(?i)\\bbt\\b",
+      "output": "biết",
+      "context": "Viết tắt cho 'biết'."
+    },
+    {
+      "input_pattern": "(?i)\\bj\\b",
+      "output": "gì",
+      "context": "Viết tắt cho 'gì'.",
+      "notes": "Cần cẩn thận vì 'j' có thể là chữ cái thường."
+    },
+    {
+      "input_pattern": "(?i)\\bngta\\b",
+      "output": "người ta",
+      "context": "Viết tắt cho 'người ta'."
+    },
+    {
+      "input_pattern": "(?i)\\bvs\\b",
+      "output": "với",
+      "context": "Viết tắt cho 'với' (ngoài 'v')."
+    },
+    {
+      "input_pattern": "(?i)\\bmn\\b",
+      "output": "mọi người",
+      "context": "Viết tắt cho 'mọi người'."
     }
   ],
-  "last_updated": "2025-04-24"
+  "last_updated": "2025-05-02"
 }
