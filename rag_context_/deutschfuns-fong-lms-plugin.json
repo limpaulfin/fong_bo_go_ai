@@ -1,0 +1,126 @@
+{
+  "1. Thuật Ngữ WordPress & Plugin": [
+    "WordPress",
+    "Plugin",
+    "Theme",
+    "Hook",
+    "Action",
+    "Filter",
+    "Shortcode",
+    "Custom Post Type",
+    "ACF",
+    "REST API"
+  ],
+  "2. Thuật Ngữ LearnDash": [
+    "LearnDash",
+    "Course",
+    "Lesson",
+    "Topic",
+    "Quiz",
+    "Question",
+    "Assignment",
+    "Certificate",
+    "Group",
+    "Drip Content"
+  ],
+  "3. Thuật Ngữ Fong LMS": [
+    "Fong LMS",
+    "Từ Điển",
+    "Streak",
+    "Achievement",
+    "Forgetting Curve",
+    "Gamification",
+    "Spaced Repetition",
+    "Thi thử",
+    "User Tracking"
+  ],
+  "4. Thuật Ngữ Lập Trình": [
+    "OOP",
+    "MVC",
+    "API",
+    "CRUD",
+    "BEM",
+    "ES6+",
+    "AJAX",
+    "JSON",
+    "Async/Await",
+    "TypeScript"
+  ],
+  "5. Thuật Ngữ Cơ Sở Dữ Liệu": [
+    "SQL",
+    "Query",
+    "wp_posts",
+    "wp_postmeta",
+    "wp_users",
+    "wp_usermeta",
+    "Prepared Statement",
+    "Sanitization",
+    "Index",
+    "JOIN"
+  ],
+  "6. Thuật Ngữ Tiếng Đức": [
+    "Wort",
+    "Aussprache",
+    "Bedeutung",
+    "Wortart",
+    "Beispielsatz",
+    "Substantiv",
+    "Verb",
+    "Adjektiv",
+    "Artikel",
+    "Wortschatz"
+  ],
+  "7. Thuật Ngữ Phát Triển & Triển Khai": [
+    "Git",
+    "Repository",
+    "Commit",
+    "Branch",
+    "PR (Pull Request)",
+    "CI/CD",
+    "Deployment",
+    "Staging",
+    "Production",
+    "Version Control"
+  ],
+  "8. Thuật Ngữ Hiệu Suất & Bảo Mật": [
+    "Caching",
+    "Object Cache",
+    "CDN",
+    "XSS",
+    "SQL Injection",
+    "Sanitization",
+    "Capability",
+    "Authentication",
+    "HTTPS",
+    "Security Audit"
+  ],
+  "9. Thuật Ngữ JsImporter": [
+    "JsImporter",
+    "forFunction",
+    "forClass",
+    "Module",
+    "Named Export",
+    "Dynamic Import",
+    "Lazy Loading"
+  ],
+  "10. Thuật Ngữ Quản Lý Bộ Nhớ AI": [
+    "Memory Management",
+    "Short-term Memory",
+    "Long-term Memory",
+    "DRY Principle",
+    "Importance Rating",
+    "Alignment",
+    "Mermaid Diagram",
+    "Context Window"
+  ],
+  "11. Thuật Ngữ Học Tiếng Đức": [
+    "Grammatik",
+    "Niveau",
+    "A1/A2/B1/B2/C1/C2",
+    "Übung",
+    "Prüfungsvorbereitung",
+    "TestDaF",
+    "Goethe-Zertifikat",
+    "Wortschatzerweiterung"
+  ]
+}

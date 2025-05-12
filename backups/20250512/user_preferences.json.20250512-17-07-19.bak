@@ -32,13 +32,8 @@
           "preferred_across_devices": true
         },
         "double_backslash": {
-          "enabled": false,
-          "function": "auto-correct with RAG",
-          "temporary": {
-            "disabled_on": "2025-05-07",
-            "reason": "User request - tạm tắt để tránh kích hoạt vô tình",
-            "note": "Có thể bật lại bằng cách bỏ comment code trong keyboard_handler.py"
-          }
+          "enabled": true,
+          "function": "auto-correct with RAG"
         }
       },
       "indicator": {
@@ -61,5 +56,5 @@
       "package_structure": ["core", "text_processor", "ui", "utils", "config"]
     }
   },
-  "last_updated": "2025-05-07"
+  "last_updated": "2025-04-28"
 }

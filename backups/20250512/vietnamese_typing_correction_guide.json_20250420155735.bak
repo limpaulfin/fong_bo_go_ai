@@ -1,0 +1,61 @@
+{
+    "tieuDe": "Hướng dẫn tự động sửa lỗi khi gõ văn bản tiếng Việt",
+    "loiThuongGap": [
+        {
+            "id": 1,
+            "tenLoi": "Thiếu dấu tiếng Việt",
+            "viDu": "toi muon thay vì tôi muốn",
+            "huongDan": "Cần tự động nhận dạng và bổ sung dấu phù hợp"
+        },
+        {
+            "id": 2,
+            "tenLoi": "Bỏ dấu sai vị trí",
+            "viDu": "tôí muôn thay vì tôi muốn",
+            "huongDan": "Cần xác định vị trí đúng của dấu trong từng âm tiết"
+        },
+        {
+            "id": 3,
+            "tenLoi": "Lỗi khoảng trắng",
+            "viDu": "Sai vị trí đầu khoảng trắng (' '), ví dụ: thongthuong, thon gthuong -> thông thường",
+            "huongDan": "Cần chuẩn hóa khoảng trắng giữa các từ"
+        },
+        {
+            "id": 4,
+            "tenLoi": "Đảo chữ 'th*' thành 'ht*'",
+            "viDu": "htông thường hoặc thông hthuong thay vì thông thường",
+            "huongDan": "Cần phát hiện và sửa tự động các trường hợp 'ht*' không phù hợp"
+        },
+        {
+            "id": 5,
+            "tenLoi": "Gõ trùng chữ cái",
+            "viDu": "thôngg thuong hoặc thoongg thuonng thay vì thông thường",
+            "huongDan": "Cần loại bỏ các chữ cái trùng lặp không cần thiết"
+        },
+        {
+            "id": 6,
+            "tenLoi": "Lỗi telex không bật Unikey",
+            "viDu": "thoong thuonwfg thay vì thông thường",
+            "huongDan": "Cần nhận diện mẫu telex và chuyển đổi thành tiếng Việt có dấu đúng"
+        },
+        {
+            "id": 7,
+            "tenLoi": "Bảo tồn đại từ xưng hô 'tui'",
+            "viDu": "tui muốn giữ nguyên thay vì sửa thành tôi muốn",
+            "huongDan": "Giữ nguyên từ 'tui' khi đóng vai trò chủ ngữ trong câu"
+        }
+    ],
+    "nguyenTacSuaLoi": [
+        "Sử dụng từ điển tiếng Việt để xác định từ đúng",
+        "Phân tích ngữ cảnh để chọn cách sửa phù hợp",
+        "Ưu tiên giữ nguyên đại từ xưng hô theo ngữ cảnh",
+        "Cung cấp gợi ý sửa trước khi áp dụng thay đổi"
+    ],
+    "quyTrinhTuDongHoa": [
+        "Phát hiện lỗi tiềm năng trong văn bản",
+        "Phân loại lỗi theo các nhóm trên",
+        "Kiểm tra ngữ cảnh sử dụng đại từ xưng hô",
+        "Đề xuất cách sửa phù hợp",
+        "Cho phép người dùng xác nhận trước khi thay đổi",
+        "Lưu lại các lỗi thường gặp để cải thiện thuật toán"
+    ]
+}

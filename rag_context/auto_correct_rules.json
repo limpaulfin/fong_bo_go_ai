@@ -1,4 +1,3 @@
-{
     "description": "Các quy tắc tự động sửa lỗi chính tả",
     "last_updated": "2025-04-24",
     "rules": [
@@ -16,6 +15,11 @@
             "pattern": "a v em",
             "replacement": "anh với em",
             "description": "Chữ 'v' thường là 'với'"
+        },
+        {
+            "pattern": "IR",
+            "replacement": "IR (Information Retrieval)",
+            "description": "Viết đầy đủ thuật ngữ Information Retrieval"
         }
     ]
 }

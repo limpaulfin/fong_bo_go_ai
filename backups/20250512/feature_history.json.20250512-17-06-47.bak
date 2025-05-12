@@ -181,26 +181,7 @@
       ],
       "testing_notes": "Đã đưa logic về chỉ dùng Right Shift. Scroll Lock được xác nhận vẫn hoạt động. Tài liệu và UI đã cập nhật.",
       "completion_date": "2025-04-24"
-    },
-    {
-      "name": "Double Backslash Temporary Disable",
-      "implementation_stages": [
-        {
-          "stage": "Comment Code",
-          "description": "Tạm tắt tính năng Double Backslash bằng cách comment code kích hoạt trong keyboard_handler.py",
-          "date": "2025-05-07",
-          "files": ["src/core/keyboard_handler.py"]
-        },
-        {
-          "stage": "Update UI",
-          "description": "Cập nhật giao diện trong tray_icon.py để thông báo tính năng đã tạm tắt",
-          "date": "2025-05-07",
-          "files": ["src/ui/tray_icon.py"]
-        }
-      ],
-      "testing_notes": "Đã tạo backup trước khi thực hiện thay đổi. Để bật lại chỉ cần bỏ comment code và khôi phục lại UI.",
-      "completion_date": "2025-05-07"
     }
   ],
-  "last_updated": "2025-05-07"
+  "last_updated": "2025-04-24"
 }

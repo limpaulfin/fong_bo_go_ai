@@ -1,0 +1,121 @@
+{
+  "tieuDe": "Thông tin người dùng và quy tắc định dạng văn bản",
+  "phienBan": "1.0.0",
+  "ngayCapNhat": "2025-04-20",
+  "thongTinNguoiDung": {
+    "hoTen": "Lâm Thanh Phong",
+    "luuY": "Lưu ý đúng tên, không phải 'Lâm Thành Phong'"
+  },
+  "quyTacDinhDangVanBan": {
+    "chuHoa_ChuThuong": {
+      "moTa": "Sử dụng chữ hoa và chữ thường hợp lý",
+      "chiTiet": "Tuân theo quy tắc chuẩn tắc tiếng Việt học thuật"
+    },
+    "danhDauDoanVan": {
+      "moTa": "Đảm bảo xuống dòng hợp lý",
+      "chiTiet": "Không nên viết quá dính với nhau"
+    },
+    "dauCauCuoiCau": {
+      "moTa": "Xử lý dấu câu cuối câu linh hoạt (Ưu tiên không thêm dấu chấm)",
+      "chiTiet": "Hạn chế tự động thêm dấu chấm '.' cuối câu, đặc biệt với các câu ngắn hoặc mang tính hội thoại. Chỉ thêm dấu chấm khi câu rõ ràng là một phát biểu hoàn chỉnh, trang trọng.",
+      "viDu": [
+        "Câu đầy đủ ý, trang trọng. -> Thêm chấm",
+        "theo toi thi, dua tren noi dung nay -> Không thêm chấm",
+        "Van chua dung y toi -> Không thêm chấm",
+        "Khi đang nghĩ... -> Không thêm chấm",
+        "Danh sách: A, B, C -> Không thêm chấm"
+      ]
+    },
+    "suaLoiTelex": {
+      "moTa": "Xử lý các lỗi gõ phím Telex thường gặp",
+      "chiTiet": [
+        {
+          "loi": "(\\w)w$",
+          "sua": "$1ơ",
+          "moTa": "Xử lý quên tắt phím w cho chữ ơ"
+        },
+        {
+          "loi": "aa",
+          "sua": "â",
+          "moTa": "Chuyển đổi tổ hợp nguyên âm đôi thành dấu mũ"
+        },
+        {
+          "loi": "oo",
+          "sua": "ô",
+          "moTa": "Chuyển đổi tổ hợp nguyên âm đôi thành dấu mũ"
+        },
+        {
+          "loi": "ee",
+          "sua": "ê",
+          "moTa": "Chuyển đổi tổ hợp nguyên âm đôi thành dấu mũ"
+        },
+        {
+          "loi": "uw",
+          "sua": "ư",
+          "moTa": "Xử lý tổ hợp chữ cái đặc biệt"
+        },
+        {
+          "loi": "([aeiouy])s",
+          "sua": "$1́",
+          "kyHieu": "Dấu sắc",
+          "moTa": "Tự động thêm dấu sắc khi thiếu"
+        },
+        {
+          "loi": "([aeiouy])f",
+          "sua": "$1̀",
+          "kyHieu": "Dấu huyền",
+          "moTa": "Tự động thêm dấu huyền khi thiếu"
+        },
+        {
+          "loi": "([aeiouy])r",
+          "sua": "$1̉",
+          "kyHieu": "Dấu hỏi",
+          "moTa": "Tự động thêm dấu hỏi khi thiếu"
+        },
+        {
+          "loi": "([aeiouy])x",
+          "sua": "$1̃",
+          "kyHieu": "Dấu ngã",
+          "moTa": "Tự động thêm dấu ngã khi thiếu"
+        },
+        {
+          "loi": "([aeiouy])j",
+          "sua": "$1̣",
+          "kyHieu": "Dấu nặng",
+          "moTa": "Tự động thêm dấu nặng khi thiếu"
+        }
+      ]
+    },
+    "tuNguDacBiet": {
+      "moTa": "Xử lý các từ ngữ đặc biệt theo phương ngữ miền Nam",
+      "chiTiet": [
+        {
+          "tu": "ah",
+          "xuLy": "Chuyển thành 'á' thay vì 'hả'",
+          "viDu": "tinh khi nao lay chong ah? -> Tính khi nào lấy chồng á?",
+          "ghiChu": "Đảm bảo văn bản có ý nghĩa rõ ràng, không chỉ đúng chính tả"
+        }
+      ]
+    },
+    "kyHieuFile": {
+      "moTa": "Quy tắc xử lý ký hiệu @ trong prompt",
+      "chiTiet": [
+        {
+          "loai": "Prompt Context",
+          "moTa": "Giữ nguyên @{filename} khi xuất hiện trong nội dung prompt",
+          "dieuKien": "Chỉ áp dụng khi đang trong ngữ cảnh prompting/IDE",
+          "xuLy": "Không thay đổi cú pháp @{filename}",
+          "viDu": [
+            "Tham khảo @user_preferences.json -> Giữ nguyên",
+            "Đọc file @rules.txt -> Không đổi thành rules.txt"
+          ]
+        },
+        {
+          "loai": "Code Context",
+          "moTa": "Sử dụng tên file thực tế không có @",
+          "viDu": "require('user_preferences.json') thay vì @..."
+        }
+      ]
+    }
+  }
+}

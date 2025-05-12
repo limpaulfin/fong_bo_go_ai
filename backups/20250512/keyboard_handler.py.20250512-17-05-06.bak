@@ -50,9 +50,9 @@ class KeyboardHandler:
                 current_time = time.time()
                 time_diff = current_time - self.last_backslash_time
 
-                # if time_diff < DOUBLE_SPACE_THRESHOLD:
-                #     self.should_scan = True
-                #     self.trigger_source = 'double_backslash'
+                if time_diff < DOUBLE_SPACE_THRESHOLD:
+                    self.should_scan = True
+                    self.trigger_source = 'double_backslash'
 
                 self.last_backslash_time = current_time
                 self.last_right_shift_time = 0
